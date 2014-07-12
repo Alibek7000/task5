@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>myTag</short-name>
+    <uri>/WEB-INF/tld/myTagLib.tld</uri>
+    <tag>
+        <name>getCategoryList</name>
+        <tag-class>com.epam.kozhanbergenov.shop.tag.GetCategoryList</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>parameter</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>getCategoryListInRU</name>
+        <tag-class>com.epam.kozhanbergenov.shop.tag.GetCategoryListInRu</tag-class>
+        <body-content>empty</body-content>
+        <!--<attribute>-->
+        <!--<name>parameter</name>-->
+        <!--<required>false</required>-->
+        <!--<rtexprvalue>true</rtexprvalue>-->
+        <!--</attribute>-->
+    </tag>
+    <tlib-version>1.0</tlib-version>
+    <short-name>paginator</short-name>
+    <uri>/WEB-INF/tlds/Paginator</uri>
+
+    <tag>
+        <name>display</name>
+        <tag-class>com.epam.kozhanbergenov.shop.tag.Paginator</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>uri</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>currPage</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>int</type>
+        </attribute>
+        <attribute>
+            <name>totalPages</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>int</type>
+        </attribute>
+        <attribute>
+            <name>maxLinks</name>
+            <rtexprvalue>true</rtexprvalue>
+            <type>int</type>
+        </attribute>
+    </tag>
+</taglib>
