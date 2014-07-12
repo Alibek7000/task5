@@ -1,5 +1,6 @@
 package com.epam.kozhanbergenov.shop.action;
 
+import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDao;
 import com.epam.kozhanbergenov.shop.dao.UserDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
@@ -33,9 +34,10 @@ public class Login implements Action {
         List<User> users = null;
         try {
             users = userDao.getAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (DaoException e) {
+            log.error(e);
         }
+
         userDao.returnConnection();
         String login2;
         String password2;

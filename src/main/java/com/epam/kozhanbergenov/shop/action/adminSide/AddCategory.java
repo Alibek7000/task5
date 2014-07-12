@@ -24,7 +24,7 @@ public class AddCategory implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=You have not permissions access this page.");
+                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
             List<Category> categories = null;

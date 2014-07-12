@@ -1,5 +1,7 @@
-package com.epam.kozhanbergenov.shop.action;
+package com.epam.kozhanbergenov.shop.action.adminSide;
 
+import com.epam.kozhanbergenov.shop.action.Action;
+import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDao;
 import com.epam.kozhanbergenov.shop.dao.UserDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
@@ -10,7 +12,6 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 import java.util.List;
 
 public class ShowUsers implements Action {
@@ -23,16 +24,12 @@ public class ShowUsers implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=You have not permissions access this page.");
+                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             UserDao userDao = new H2UserDao(ConnectionPool.getConnection());
             List<User> users = null;
-            try {
-                users = userDao.getAll();
-            } catch (SQLException e) {
-                log.error(e);
-            }
-            userDao.returnConnection();
+            users = userDao.getAll();
+           userDao.returnConnection();
             if (users != null) httpSession.setAttribute("users", users);
             return new ActionResult("/WEB-INF/users.jsp");
         } catch (Exception e) {

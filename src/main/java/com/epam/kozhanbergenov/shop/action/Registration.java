@@ -58,11 +58,9 @@ public class Registration implements Action {
             }
             if (userDao.checkLogin(login)) {
                 Client client = new Client(login, password, name, surname, address, phoneNumber);
-                try {
+
                     userDao.create(client);
-                } catch (SQLException e) {
-                    log.error(e);
-                }
+
                 userDao.returnConnection();
                 HttpSession httpSession = req.getSession();
                 httpSession.setAttribute("user", client);

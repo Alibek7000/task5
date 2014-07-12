@@ -1,5 +1,6 @@
 package com.epam.kozhanbergenov.shop.action;
 
+import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDao;
 import com.epam.kozhanbergenov.shop.dao.ItemDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
@@ -29,7 +30,7 @@ public class AboutItem implements Action {
         Item item = null;
         try {
             item = itemDao.read(id);
-        } catch (SQLException e) {
+        } catch (DaoException e) {
             log.error(e);
         }
         itemDao.returnConnection();

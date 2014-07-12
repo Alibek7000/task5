@@ -23,10 +23,10 @@ public class RemoveCategory implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=You have not permissions access this page.");
+                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             int id = new Integer(req.getParameter("id"));
-            CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getInstance().getConnection());
+            CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
             categoryDao.delete(categoryDao.read(id));
             categoryDao.returnConnection();
             return new ActionResult("controller?action=showCategories", true);

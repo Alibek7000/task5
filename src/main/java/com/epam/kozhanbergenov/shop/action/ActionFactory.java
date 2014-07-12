@@ -2,6 +2,7 @@ package com.epam.kozhanbergenov.shop.action;
 
 
 import com.epam.kozhanbergenov.shop.action.adminSide.*;
+import com.epam.kozhanbergenov.shop.action.clientSide.*;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +41,7 @@ public final class ActionFactory {
         actions.put("showCategoryItems", new ShowCategoryItems());
         actions.put("showEditCategoryPage", new ShowEditCategoryPage());
         actions.put("editCategory", new EditCategory());
-        actions.put("showOrders", new ShowOrdersList());
+        actions.put("showOrders", new ShowOrders());
         actions.put("sendingOrder", new SendingOrder());
         actions.put("deleteOldBaskets", new DeleteOldBaskets());
         actions.put("setLanguage", new SetLanguage());

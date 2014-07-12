@@ -21,11 +21,7 @@ public class ShowCategories implements Action {
         try {
             CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
             List<Category> categoryList = null;
-            try {
-                categoryList = categoryDao.getAll();
-            } catch (SQLException e) {
-                log.error(e);
-            }
+            categoryList = categoryDao.getAll();
             categoryDao.returnConnection();
             HttpSession httpSession = req.getSession();
             if (categoryList != null) httpSession.setAttribute("categories", categoryList);

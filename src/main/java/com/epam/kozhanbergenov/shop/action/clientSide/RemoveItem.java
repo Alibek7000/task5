@@ -1,5 +1,7 @@
-package com.epam.kozhanbergenov.shop.action;
+package com.epam.kozhanbergenov.shop.action.clientSide;
 
+import com.epam.kozhanbergenov.shop.action.Action;
+import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.BasketItems;
 import com.epam.kozhanbergenov.shop.entity.Administrator;
 import com.epam.kozhanbergenov.shop.entity.Client;
@@ -20,7 +22,7 @@ public class RemoveItem implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Administrator || ((Client) user).isBanned()) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=You have not permissions access this page.");
+                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             int id = new Integer(req.getParameter("id"));
             BasketItems basketItems = new BasketItems(req, resp);

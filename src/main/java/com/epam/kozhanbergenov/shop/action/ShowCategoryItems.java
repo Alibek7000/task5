@@ -39,39 +39,30 @@ public class ShowCategoryItems implements Action {
             if (req.getParameter("page") != null)
                 page = Integer.parseInt(req.getParameter("page"));
 
-            try {
                 noOfRecords = itemDao.getNoOfRecords(categoryId);
-            } catch (SQLException e) {
-                log.debug(e);
-            }
+
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / RECORDS_PER_PAGE);
             req.setAttribute("noOfPages", noOfPages);
             req.setAttribute("currentPage", page);
 
             if (parentId != 0)
-                try {
+
                     categoryItems = itemDao.getAllByCategory(categoryId, (page - 1) * RECORDS_PER_PAGE, RECORDS_PER_PAGE, sortingUp);
-                } catch (SQLException e) {
-                    log.error(e);
-                }
+
             else {
-                try {
+
                     categoryItems = itemDao.getAllByParentCategory(categoryId, (page - 1) * RECORDS_PER_PAGE, RECORDS_PER_PAGE, sortingUp);
-                } catch (SQLException e) {
-                    log.error(e);
-                }
+
             }
             itemDao.returnConnection();
             CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
 
             String categoryName = null;
             String categoryRuName = null;
-            try {
+
                 categoryName = categoryDao.read(categoryId).getName();
                 categoryRuName = categoryDao.read(categoryId).getRuName();
-            } catch (SQLException e) {
-                log.error(e);
-            }
+
             HttpSession httpSession = req.getSession();
             if (categoryItems != null) {
                 httpSession.setAttribute("categoryItems", categoryItems);

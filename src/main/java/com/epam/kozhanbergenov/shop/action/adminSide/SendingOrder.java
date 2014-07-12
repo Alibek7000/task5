@@ -1,5 +1,7 @@
-package com.epam.kozhanbergenov.shop.action;
+package com.epam.kozhanbergenov.shop.action.adminSide;
 
+import com.epam.kozhanbergenov.shop.action.Action;
+import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2OrderDao;
 import com.epam.kozhanbergenov.shop.dao.OrderDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
@@ -11,7 +13,6 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 public class SendingOrder implements Action {
     private static final Logger log = Logger.getLogger(SendingOrder.class);
@@ -23,7 +24,7 @@ public class SendingOrder implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=You have not permissions access this page.");
+                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
             }
 
             int id = new Integer(req.getParameter("id"));
@@ -32,17 +33,12 @@ public class SendingOrder implements Action {
             OrderDao orderDao = new H2OrderDao(ConnectionPool.getConnection());
 
             Order order = null;
-            try {
+
                 order = orderDao.read(id);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+
             order.setSent(value);
-            try {
-                orderDao.setSent(order, value);
-            } catch (SQLException e) {
-                log.error(e);
-            }
+             orderDao.setSent(order, value);
+
             orderDao.returnConnection();
             log.debug("is sent " + order.isSent());
             return new ActionResult("controller?action=showOrders", true);

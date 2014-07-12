@@ -31,7 +31,7 @@ public class AddItem implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=permissionDenied");
+                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             List<Category> categories = null;
             CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());

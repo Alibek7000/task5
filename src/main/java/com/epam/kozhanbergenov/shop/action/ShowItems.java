@@ -31,11 +31,7 @@ public class ShowItems implements Action {
 
             List<Category> categories = null;
             CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
-            try {
-                categories = categoryDao.getAll();
-            } catch (SQLException e) {
-                log.error(e);
-            }
+              categories = categoryDao.getAll();
             httpSession.setAttribute("categories", categories);
             ItemDao itemDao = new H2ItemDao(ConnectionPool.getConnection());
             boolean sortingUp = false;
@@ -48,17 +44,10 @@ public class ShowItems implements Action {
                 page = Integer.parseInt(req.getParameter("page"));
 
             Map<Item, Integer> itemIntegerMap = null;
-            try {
-                itemIntegerMap = itemDao.getAll((page - 1) * RECORDS_PER_PAGE, RECORDS_PER_PAGE, sortingUp);
-            } catch (SQLException e) {
-                log.error(e);
-            }
 
-            try {
+                itemIntegerMap = itemDao.getAll((page - 1) * RECORDS_PER_PAGE, RECORDS_PER_PAGE, sortingUp);
                 noOfRecords = itemDao.getNoOfRecords(0);
-            } catch (SQLException e) {
-                log.debug(e);
-            }
+
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / RECORDS_PER_PAGE);
             req.setAttribute("noOfPages", noOfPages);
             req.setAttribute("currentPage", page);
