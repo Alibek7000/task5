@@ -24,7 +24,7 @@ public class ShowEditItemPage implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
+                return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             int id = new Integer(req.getParameter("id"));
             Item editItem = null;
@@ -39,7 +39,7 @@ public class ShowEditItemPage implements Action {
             return new ActionResult("controller?action=editItem", true);
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 }

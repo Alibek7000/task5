@@ -35,18 +35,18 @@ public class AddCategory implements Action {
                 for (Category category : categories) {
                     log.debug(category);
                 }
-                return new ActionResult("/WEB-INF/addCategory.jsp");
+                return new ActionResult("/WEB-INF/jsp/addCategory.jsp");
             }
             String description = req.getParameter("ruName");
             int parentId = 0;
             if (!req.getParameter("parentId").isEmpty())
                 parentId = Integer.parseInt(req.getParameter("parentId"));
             if (name.isEmpty())
-                return new ActionResult("/WEB-INF/addCategory.jsp?errorMessage=error.incorrectField");
+                return new ActionResult("/WEB-INF/jsp/addCategory.jsp?errorMessage=error.incorrectField");
             for (Category category : categories) {
                 if (category.getName().equals(name)) {
                     categoryDao.returnConnection();
-                    return new ActionResult("/WEB-INF/addCategory.jsp?errorMessage=" +
+                    return new ActionResult("/WEB-INF/jsp/addCategory.jsp?errorMessage=" +
                             "error.usedName");
                 }
             }
@@ -56,7 +56,7 @@ public class AddCategory implements Action {
             return new ActionResult("controller?action=showCategories", true);
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 

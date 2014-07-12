@@ -31,7 +31,7 @@ public class AddItem implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
+                return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             List<Category> categories = null;
             CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
@@ -59,7 +59,7 @@ public class AddItem implements Action {
                 categoryId = Integer.parseInt(req.getParameter("categoryId"));
 
             if (name.isEmpty() || description.isEmpty() || quantityString.isEmpty() || priceString.isEmpty())
-                return new ActionResult("/WEB-INF/addItem.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/addItem.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
 
             int quantity = 0;
@@ -79,18 +79,18 @@ public class AddItem implements Action {
             } catch (Exception e) {
                 log.error(e);
                 em4 = "error.doubleField";
-                return new ActionResult("/WEB-INF/addItem.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/addItem.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
             }
 
             if (quantity < 0) {
                 em3 = "error.integer";
-                return new ActionResult("/WEB-INF/editItem.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/editItem.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
             }
             if (price < 0) {
                 em4 = "error.doubleField";
-                return new ActionResult("/WEB-INF/addItem.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/addItem.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
             }
 
@@ -100,7 +100,7 @@ public class AddItem implements Action {
                 if (item.getName().equals(name)) {
                     itemDao.returnConnection();
                     em1 = "error.usedName";
-                    return new ActionResult("/WEB-INF/addItem.jsp?em1="
+                    return new ActionResult("/WEB-INF/jsp/addItem.jsp?em1="
                             + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
                 }
 
@@ -157,7 +157,7 @@ public class AddItem implements Action {
             return new ActionResult("/index.jsp", true);
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 }

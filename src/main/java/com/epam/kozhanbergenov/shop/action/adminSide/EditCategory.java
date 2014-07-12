@@ -23,7 +23,7 @@ public class EditCategory implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
+                return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
             String name = "";
@@ -38,7 +38,7 @@ public class EditCategory implements Action {
                 parentId = new Integer(req.getParameter("parentId"));
             } catch (Exception e) {
                 log.error(e);
-                return new ActionResult("WEB-INF/errorPage.jsp");
+                return new ActionResult("WEB-INF/jsp/errorPage.jsp");
             }
 
             if (name == null && description == null) {
@@ -54,7 +54,7 @@ public class EditCategory implements Action {
             return new ActionResult("controller?action=showCategories", true);
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 

@@ -16,7 +16,7 @@
     </welcome-file-list>
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/errorPage.jsp</location>
+        <location>/WEB-INF/jsp/errorPage.jsp</location>
     </error-page>
     <session-config>
         <session-timeout>15</session-timeout>

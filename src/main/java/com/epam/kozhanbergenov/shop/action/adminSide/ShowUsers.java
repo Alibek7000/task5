@@ -24,17 +24,17 @@ public class ShowUsers implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
+                return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             UserDao userDao = new H2UserDao(ConnectionPool.getConnection());
             List<User> users = null;
             users = userDao.getAll();
            userDao.returnConnection();
             if (users != null) httpSession.setAttribute("users", users);
-            return new ActionResult("/WEB-INF/users.jsp");
+            return new ActionResult("/WEB-INF/jsp/users.jsp");
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 

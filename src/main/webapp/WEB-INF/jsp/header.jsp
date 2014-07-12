@@ -37,11 +37,11 @@
 
     <a href="controller?action=showBasket"><fmt:message key="header.basket"/>
         <c:choose>
-            <c:when test="${sessionScope.totalSum > 0}"><img src="images/nonEmptyBasket.png" width="16px"
+            <c:when test="${sessionScope.totalSum > 0}"><img src="../images/nonEmptyBasket.png" width="16px"
                                                              style="display: inline-table;">
             </c:when>
             <c:otherwise>
-                <img src="images/emptyBasket.png" width="16px" style="display: inline-table;">
+                <img src="../images/emptyBasket.png" width="16px" style="display: inline-table;">
             </c:otherwise>
         </c:choose>
     </a>

@@ -1,5 +1,7 @@
 package com.epam.kozhanbergenov.shop.action;
 
+import com.epam.kozhanbergenov.shop.entity.Administrator;
+import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.User;
 import org.apache.log4j.Logger;
 
@@ -13,14 +15,17 @@ public class WelcomeAction implements Action {
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         log.debug("WelcomeAction was started");
+        HttpSession httpSession = req.getSession();
+        User user = (User) httpSession.getAttribute("user");
+        if (user instanceof Administrator) {
+            return new ActionResult("/WEB-INF/jsp/admin.jsp");
+        }
         try {
-            HttpSession httpSession = req.getSession();
-            User user = (User) httpSession.getAttribute("user");
             log.debug("User role is..." + user.getClass().getSimpleName());
-            return new ActionResult("/WEB-INF/successfulLogin.jsp");
+            return new ActionResult("/WEB-INF/jsp/successfulLogin.jsp");
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 }

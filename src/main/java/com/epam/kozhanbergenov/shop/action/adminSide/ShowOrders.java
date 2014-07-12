@@ -25,7 +25,7 @@ public class ShowOrders implements Action {
         HttpSession httpSession = req.getSession();
         User user = (User) httpSession.getAttribute("user");
         if (user == null || user instanceof Client) {
-            return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
+            return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
         }
         OrderDao orderDao = new H2OrderDao(ConnectionPool.getConnection());
         List<Order> orders = null;
@@ -37,7 +37,7 @@ public class ShowOrders implements Action {
 
         orderDao.returnConnection();
         if (orders != null) httpSession.setAttribute("orders", orders);
-        return new ActionResult("/WEB-INF/orders.jsp");
+        return new ActionResult("/WEB-INF/jsp/orders.jsp");
     }
 
 }

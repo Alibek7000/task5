@@ -54,10 +54,10 @@ public class ShowItems implements Action {
 
             itemDao.returnConnection();
             if (itemIntegerMap != null) httpSession.setAttribute("availableItems", itemIntegerMap);
-            return new ActionResult("/WEB-INF/catalog.jsp");
+            return new ActionResult("WEB-INF/jsp/catalog.jsp");
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 

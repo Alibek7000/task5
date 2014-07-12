@@ -6,7 +6,7 @@
     <title>Shop - catalog</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/style.css"/>
 </head>
-<jsp:include page="/WEB-INF/header.jsp"/>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 
 <body>
 <div id="main">

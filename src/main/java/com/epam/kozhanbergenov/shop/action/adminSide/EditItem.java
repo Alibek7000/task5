@@ -26,12 +26,12 @@ public class EditItem implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
             if (user == null || user instanceof Client) {
-                return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
+                return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             String name = req.getParameter("name");
             String description = req.getParameter("description");
             if (name == null && description == null) {
-                return new ActionResult("/WEB-INF/editItem.jsp");
+                return new ActionResult("/WEB-INF/jsp/editItem.jsp");
             }
             ItemDao itemDao = new H2ItemDao(ConnectionPool.getConnection());
             String quantityString = req.getParameter("quantity");
@@ -50,7 +50,7 @@ public class EditItem implements Action {
             if (priceString.isEmpty()) em4 = "error.emptyField";
 
             if (name.isEmpty() || description.isEmpty() || quantityString.isEmpty() || priceString.isEmpty())
-                return new ActionResult("/WEB-INF/editItem.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/editItem.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
 
             int quantity = 0;
@@ -61,7 +61,7 @@ public class EditItem implements Action {
             } catch (Exception e) {
                 log.error(e);
                 em3 = "error.integer";
-                return new ActionResult("/WEB-INF/editItem.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/editItem.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
             }
 
@@ -76,12 +76,12 @@ public class EditItem implements Action {
 
             if (quantity < 0) {
                 em3 = "error.integer";
-                return new ActionResult("/WEB-INF/editItem.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/editItem.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
             }
             if (price < 0) {
                 em4 = "error.doubleField";
-                return new ActionResult("/WEB-INF/editItem.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/editItem.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
             }
 
@@ -138,7 +138,7 @@ public class EditItem implements Action {
             return new ActionResult("/index.jsp", true);
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 

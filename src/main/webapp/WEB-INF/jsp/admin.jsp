@@ -12,10 +12,10 @@
     <title>BikeShop - <fmt:message key="header.admin"/></title>
     <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/style.css"/>
 </head>
-<jsp:include page="/WEB-INF/header.jsp"/>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <body>
 <div id="sideBlock">
-    <jsp:include page="/WEB-INF/sideBlock.jsp"/>
+    <jsp:include page="/WEB-INF/jsp/sideBlock.jsp"/>
 </div>
 <div id="main">
     <div id="bigText">
@@ -24,7 +24,7 @@
                 <button onClick="location.href='controller?action=showUsers'"><fmt:message
                         key="button.editUsers"/></button>
                 <br>
-                <button onClick="location.href='/shop/index.jsp'"><fmt:message key="button.editCatalog"/></button>
+                <button onClick="location.href='/index.jsp'"><fmt:message key="button.editCatalog"/></button>
                 <br>
                 <button onClick="location.href='controller?action=showCategories'"><fmt:message
                         key="button.editCategories"/></button>

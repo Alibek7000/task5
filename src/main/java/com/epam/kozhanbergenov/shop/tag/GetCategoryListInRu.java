@@ -1,6 +1,7 @@
 package com.epam.kozhanbergenov.shop.tag;
 
 import com.epam.kozhanbergenov.shop.dao.CategoryDao;
+import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
@@ -22,7 +23,7 @@ public class GetCategoryListInRu extends TagSupport {
         List<Category> categoryList = null;
         try {
             categoryList = categoryDao.getAllByParentId(0);
-        } catch (SQLException e) {
+        } catch (DaoException e) {
             log.error(e);
         }
 
@@ -31,7 +32,7 @@ public class GetCategoryListInRu extends TagSupport {
             List<Category> childrenList = null;
             try {
                 childrenList = categoryDao.getAllByParentId(category.getId());
-            } catch (SQLException e) {
+            } catch (DaoException e) {
                 log.error(e);
             }
             s += "<strong><a href=\"controller?action=showCategoryItems&parentId=0&categoryId=" + category.getId() + "\">"

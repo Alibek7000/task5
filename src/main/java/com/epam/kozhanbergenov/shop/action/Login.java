@@ -27,7 +27,7 @@ public class Login implements Action {
         log.debug("Password is " + password);
 
         if (login == null || password == null) {
-            return new ActionResult("/WEB-INF/loginPage.jsp");
+            return new ActionResult("/WEB-INF/jsp/loginPage.jsp");
         }
         password = PasswordHashing.getHashValue(password);
         UserDao userDao = new H2UserDao(ConnectionPool.getConnection());
@@ -60,7 +60,7 @@ public class Login implements Action {
         }
 
         log.debug("login and password is incorrect");
-        return new ActionResult("/WEB-INF/loginPage.jsp?errorMessage=loginIncorrect");
+        return new ActionResult("/WEB-INF/jsp/loginPage.jsp?errorMessage=loginIncorrect");
     }
 }
 

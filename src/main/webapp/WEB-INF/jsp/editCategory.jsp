@@ -12,10 +12,10 @@
     <title>BikeShop - <fmt:message key="button.editCategories"/></title>
     <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/style.css"/>
 </head>
-<jsp:include page="/WEB-INF/header.jsp"/>
+<jsp:include page="/WEB-INF/jsp/header.jsp.jsp"/>
 <body>
 <div id="sideBlock">
-    <jsp:include page="/WEB-INF/sideBlock.jsp"/>
+    <jsp:include page="/WEB-INF/jsp/sideBlock.jsp.jsp"/>
 </div>
 <div id="main">
     <div id="bigText">

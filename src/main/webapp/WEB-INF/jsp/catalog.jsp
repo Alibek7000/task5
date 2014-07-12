@@ -13,9 +13,9 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/style.css"/>
 </head>
 <body>
-<jsp:include page="/WEB-INF/header.jsp"/>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <div id="sideBlock">
-    <jsp:include page="/WEB-INF/sideBlock.jsp"/>
+    <jsp:include page="/WEB-INF/jsp/sideBlock.jsp"/>
 </div>
 
 <div id="main">

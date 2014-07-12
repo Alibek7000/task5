@@ -5,27 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7ecd372-3c40-47ca-9839-1e13fd22f8e8" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\java\com\epam\kozhanbergenov\shop\action\BuyItemButton.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/BuyItemButton.java" />
-      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\java\com\epam\kozhanbergenov\shop\action\Pay.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/Pay.java" />
-      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\java\com\epam\kozhanbergenov\shop\action\RemoveItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/RemoveItem.java" />
-      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\java\com\epam\kozhanbergenov\shop\action\SendingOrder.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/SendingOrder.java" />
-      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\java\com\epam\kozhanbergenov\shop\action\ShowBasket.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/ShowBasket.java" />
-      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\java\com\epam\kozhanbergenov\shop\action\ShowOrder.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/ShowOrder.java" />
-      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\java\com\epam\kozhanbergenov\shop\action\ShowOrdersList.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowOrders.java" />
-      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\java\com\epam\kozhanbergenov\shop\action\ShowUsers.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowUsers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/AboutItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/AboutItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ActionFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ActionFactory.java" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\aboutItem.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/aboutItem.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\addCategory.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addCategory.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\addItem.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addItem.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\basket.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\catalog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/catalog.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\categories.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/categories.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\categoryItems.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/categoryItems.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\editCategory.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editCategory.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\editItem.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editItem.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\errorPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errorPage.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\loginPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/loginPage.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\orders.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\registration.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\showOrder.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showOrder.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\sideBlock.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sideBlock.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\successfulLogin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/successfulLogin.jsp" />
+      <change type="MOVED" beforePath="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\users.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddCategory.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddCategory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddItem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/BaningClient.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/BaningClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditCategory.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditCategory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/tag/GetCategoryList.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/tag/GetCategoryList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/tag/GetCategoryListInRu.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/tag/GetCategoryListInRu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Login.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Login.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Registration.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Registration.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveCategory.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveCategory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveItemFromBase.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveItemFromBase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/SendingOrder.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/SendingOrder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowAdminPanel.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowAdminPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowCategories.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowCategories.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowCategoryItems.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowCategoryItems.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditCategoryPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditCategoryPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditItemPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditItemPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowItems.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowItems.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowOrders.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowOrders.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowUsers.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowUsers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/WelcomeAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/WelcomeAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/text.properties" afterPath="$PROJECT_DIR$/src/main/resources/text.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/text_ru.properties" afterPath="$PROJECT_DIR$/src/main/resources/text_ru.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="shop.iws" />
@@ -92,105 +111,109 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EditItem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditItem.java">
+      <file leaf-file-name="header.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2312">
-              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+            <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="1224">
+              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RemoveCategory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveCategory.java">
+      <file leaf-file-name="loginPage.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/loginPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
-              <caret line="25" column="99" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
+            <state vertical-scroll-proportion="-1.0384616" vertical-offset="262" max-vertical-offset="782">
+              <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RemoveItemFromBase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveItemFromBase.java">
+      <file leaf-file-name="orders.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state vertical-scroll-proportion="23.807692" vertical-offset="619" max-vertical-offset="1139">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendingOrder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/SendingOrder.java">
+      <file leaf-file-name="registration.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-              <caret line="26" column="99" selection-start-line="26" selection-start-column="99" selection-end-line="26" selection-end-column="99" />
+            <state vertical-scroll-proportion="27.73077" vertical-offset="721" max-vertical-offset="1241">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowAdminPanel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowAdminPanel.java">
+      <file leaf-file-name="showOrder.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showOrder.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="918">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowEditCategoryPage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditCategoryPage.java">
+      <file leaf-file-name="sideBlock.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sideBlock.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="459">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowEditItemPage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditItemPage.java">
+      <file leaf-file-name="successfulLogin.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/successfulLogin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state vertical-scroll-proportion="-5.923077" vertical-offset="118" max-vertical-offset="612">
+              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowOrders.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowOrders.java">
+      <file leaf-file-name="admin.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+            <state vertical-scroll-proportion="-7.576923" vertical-offset="7" max-vertical-offset="935">
+              <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowUsers.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowUsers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-              <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
+      <file leaf-file-name="text.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/text.properties">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1207">
+              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
               <folding />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="ResourceBundle">
+            <state />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="BuyItemButton.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/BuyItemButton.java">
+      <file leaf-file-name="text_ru.properties" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/text_ru.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48296836" vertical-offset="96" max-vertical-offset="1020">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.3319149" vertical-offset="218" max-vertical-offset="1241">
+              <caret line="22" column="96" selection-start-line="22" selection-start-column="96" selection-end-line="22" selection-end-column="96" />
+              <folding />
             </state>
+          </provider>
+          <provider editor-type-id="ResourceBundle">
+            <state />
           </provider>
         </entry>
       </file>
@@ -207,16 +230,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/entity/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/exception/DaoException.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/header.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/text.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Pay.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/RemoveItemFromBase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/EditItem.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/text_ru.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowEditItemPage.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/errorPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowEditCategoryPage.java" />
@@ -231,33 +244,43 @@
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2BasketDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/DaoFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/DeleteOldBaskets.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveItemFromBase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditCategoryPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditItemPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowCategories.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowUsers.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowItems.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowOrdersList.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowOrders.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowCategoryItems.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Registration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Login.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/SendingOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/AboutItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/BuyItemButton.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/RemoveItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/ShowOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/Pay.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/SendingOrder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/tag/GetCategoryListInRu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/tag/GetCategoryList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowItems.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowAdminPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddCategory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/WelcomeAction.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/catalog.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addCategory.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/aboutItem.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/loginPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/BaningClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditCategory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveCategory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowAdminPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveItemFromBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/SendingOrder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditCategoryPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditItemPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowOrders.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowUsers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Login.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/text.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/text_ru.properties" />
       </list>
     </option>
   </component>
@@ -444,6 +467,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -497,6 +550,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tag" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -620,40 +703,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="clientSide" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="action" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="adminSide" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -725,9 +774,9 @@
       <recent name="com.epam.kozhanbergenov.shop.dao" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Java\Workspace\shop\src\main\webapp\images" />
-      <recent name="C:\Java\Workspace\shop\src\main\webapp\WEB-INF" />
       <recent name="C:\Java\Workspace\shop\src\main\webapp\WEB-INF\jsp" />
+      <recent name="C:\Java\Workspace\shop\src\main\webapp\WEB-INF" />
+      <recent name="C:\Java\Workspace\shop\src\main\webapp\images" />
       <recent name="C:\Java\Workspace\shop\src\main\webapp" />
       <recent name="C:\Java\Workspace\shop\src\main\resources\images" />
     </key>
@@ -1144,6 +1193,14 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="StructuralSearchPlugin">
+    <replaceConfiguration name="user defined" text="/WEB-INF/" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement="WEB-INF/jsp/" history="1">
+      <constraint name="__context__" script="&quot;&quot;" regexp="WEB-INF/" within="" contains="" />
+    </replaceConfiguration>
+    <replaceConfiguration name="user defined" text="/WEB-INF/" recursive="false" caseInsensitive="true" type="JSP" reformatAccordingToStyle="true" shortenFQN="true" replacement="WEB-INF/jsp/" history="1" />
+    <replaceConfiguration name="user defined" text="/WEB-INF/" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement="WEB-INF/jsp/" history="1" />
+    <replaceConfiguration name="user defined" text="WEB-INF/" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement="WEB-INF/jsp/" history="1" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -1237,7 +1294,7 @@
       <workItem from="1404915431008" duration="828000" />
       <workItem from="1405159415172" duration="7664000" />
       <workItem from="1405167199381" duration="648000" />
-      <workItem from="1405167850758" duration="1296000" />
+      <workItem from="1405167850758" duration="3674000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1401272989808</created>
@@ -1315,11 +1372,15 @@
       <created>1405168173215</created>
       <updated>1405168173215</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="reformatting">
+      <created>1405169157932</created>
+      <updated>1405169157932</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="581441000" />
+    <option name="totallyTimeSpent" value="583819000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1343,7 +1404,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1292" height="1000" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.7382496" order="7" side_tool="false" content_ui="tabs" />
@@ -1368,7 +1429,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32090762" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29578605" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33256617" sideWeight="0.82310176" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33256617" sideWeight="0.82310176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1825525" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1413,256 +1474,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/categoryItems.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="35.423077" vertical-offset="1210" max-vertical-offset="1836">
-          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/basket.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.961538" vertical-offset="1125" max-vertical-offset="1649">
-          <caret line="86" column="15" selection-start-line="84" selection-start-column="8" selection-end-line="86" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/text_ru.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.12" vertical-offset="663" max-vertical-offset="1207">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/text.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.52" vertical-offset="576" max-vertical-offset="1207">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/errorPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.230769" vertical-offset="46" max-vertical-offset="544">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2ItemDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5498" max-vertical-offset="6018">
-          <caret line="347" column="9" selection-start-line="347" selection-start-column="9" selection-end-line="347" selection-end-column="9" />
-          <folding>
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT LAST_..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="UPDATE ITEM ..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="UPDATE ITEM ..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT ID FR..CATEGORY..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="UPDATE ITEM ..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT ID FR..CATEGORY..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ITEM..." />
-            <marker date="1405166765360" expanded="true" signature="-1:-1" placeholder="SELECT ID FR..CATEGORY..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2CategoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="3026">
-          <caret line="162" column="9" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/BasketItems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2710" max-vertical-offset="3536">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2BasketDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5790754" vertical-offset="136" max-vertical-offset="4301">
-          <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#629#630#0" expanded="false" />
-            <element signature="e#673#674#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.185414" vertical-offset="2227" max-vertical-offset="3196">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#740#741#0" expanded="false" />
-            <element signature="e#784#785#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2OrderDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60705596" vertical-offset="2714" max-vertical-offset="3536">
-          <caret line="189" column="28" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#821#822#0" expanded="true" />
-            <element signature="e#865#866#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/BasketDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/CategoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/DaoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37226278" vertical-offset="0" max-vertical-offset="822">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#615#616#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
-            <element signature="e#729#730#0" expanded="true" />
-            <element signature="e#760#761#0" expanded="true" />
-            <element signature="e#809#810#0" expanded="true" />
-            <element signature="e#843#844#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#920#921#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/ItemDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16810878" vertical-offset="0" max-vertical-offset="809">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/OrderDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/exception/DaoException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/AboutItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ActionFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1088">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ActionResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Basket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="215" max-vertical-offset="1037">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/LogOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
@@ -1703,22 +1514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowItems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="935">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/WelcomeAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/Pay.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="935">
@@ -1751,18 +1546,140 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/BuyItemButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1020">
+          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/tag/GetCategoryListInRu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="424" max-vertical-offset="918">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/tag/GetCategoryList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/ShowItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="935">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/aboutItem.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="14.384615" vertical-offset="612" max-vertical-offset="1139">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addCategory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.461538" vertical-offset="526" max-vertical-offset="1020">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addItem.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="26.76923" vertical-offset="696" max-vertical-offset="1190">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="44.423077" vertical-offset="1155" max-vertical-offset="1649">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/catalog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="1734">
+          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/categories.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="24.807692" vertical-offset="645" max-vertical-offset="1139">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/categoryItems.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="51.615383" vertical-offset="1342" max-vertical-offset="1836">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editCategory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="18.26923" vertical-offset="475" max-vertical-offset="969">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editItem.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="28.73077" vertical-offset="747" max-vertical-offset="1241">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errorPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="24.807692" vertical-offset="645" max-vertical-offset="1139">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddCategory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="952">
-          <caret line="26" column="99" selection-start-line="26" selection-start-column="99" selection-end-line="26" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="952">
+          <caret line="48" column="54" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2669">
-          <caret line="33" column="99" selection-start-line="33" selection-start-column="99" selection-end-line="33" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="2669">
+          <caret line="159" column="49" selection-start-line="159" selection-start-column="49" selection-end-line="159" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -1770,7 +1687,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/BaningClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -1785,40 +1702,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditCategory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="935">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="935">
+          <caret line="56" column="49" selection-start-line="56" selection-start-column="49" selection-end-line="56" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1501" max-vertical-offset="2312">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2312">
+          <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveCategory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
-          <caret line="25" column="99" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="561">
+          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveItemFromBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="646">
+          <caret line="41" column="49" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/SendingOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <caret line="26" column="99" selection-start-line="26" selection-start-column="99" selection-end-line="26" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="782">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -1826,51 +1743,151 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowAdminPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditCategoryPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="612">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowEditItemPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="663">
+          <caret line="41" column="49" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowOrders.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="595">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/ShowUsers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="595">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/BuyItemButton.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48296836" vertical-offset="96" max-vertical-offset="1020">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1037">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/WelcomeAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="187">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="1224">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/loginPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0384616" vertical-offset="262" max-vertical-offset="782">
+          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="23.807692" vertical-offset="619" max-vertical-offset="1139">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="27.73077" vertical-offset="721" max-vertical-offset="1241">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showOrder.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sideBlock.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="520">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/successfulLogin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.923077" vertical-offset="118" max-vertical-offset="612">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.576923" vertical-offset="7" max-vertical-offset="935">
+          <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/text.properties">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1207">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/text_ru.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3319149" vertical-offset="218" max-vertical-offset="1241">
+          <caret line="22" column="96" selection-start-line="22" selection-start-column="96" selection-end-line="22" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
       </provider>
     </entry>
   </component>
