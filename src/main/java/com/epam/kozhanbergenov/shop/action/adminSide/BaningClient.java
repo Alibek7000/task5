@@ -1,7 +1,9 @@
-package com.epam.kozhanbergenov.shop.action;
+package com.epam.kozhanbergenov.shop.action.adminSide;
 
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDao;
+import com.epam.kozhanbergenov.shop.action.Action;
+import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.UserDao;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -10,7 +12,6 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 public class BaningClient implements Action {
     private static final Logger log = Logger.getLogger(BaningClient.class);
@@ -31,18 +32,9 @@ public class BaningClient implements Action {
             UserDao userDao = new H2UserDao(ConnectionPool.getConnection());
 
             User client = null;
-            try {
-                client = userDao.read(id);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
+            client = userDao.read(id);
             ((Client) client).setBanned(value);
-            try {
-                userDao.update(client);
-            } catch (SQLException e) {
-                log.error(e);
-            }
+            userDao.update(client);
             userDao.returnConnection();
             log.debug("isBanned " + ((Client) client).isBanned());
             return new ActionResult("controller?action=showUsers", true);

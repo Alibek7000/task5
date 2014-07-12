@@ -1,7 +1,9 @@
-package com.epam.kozhanbergenov.shop.action;
+package com.epam.kozhanbergenov.shop.action.adminSide;
 
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDao;
+import com.epam.kozhanbergenov.shop.action.Action;
+import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.ItemDao;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.Item;
@@ -14,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import java.io.*;
-import java.sql.SQLException;
 
 public class EditItem implements Action {
     private static final Logger log = Logger.getLogger(EditItem.class);
@@ -89,11 +90,7 @@ public class EditItem implements Action {
             item.setId(id);
             item.setCategory(categoryId);
             log.debug("categoryId " + categoryId);
-            try {
-                itemDao.update(item, quantity);
-            } catch (SQLException e) {
-                log.error(e);
-            }
+            itemDao.update(item, quantity);
             Part filePart = null;
             try {
                 if (req.getPart("file").getSize() > 0) {

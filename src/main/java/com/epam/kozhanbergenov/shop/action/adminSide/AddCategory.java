@@ -1,5 +1,7 @@
-package com.epam.kozhanbergenov.shop.action;
+package com.epam.kozhanbergenov.shop.action.adminSide;
 
+import com.epam.kozhanbergenov.shop.action.Action;
+import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.CategoryDao;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
@@ -11,7 +13,6 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 import java.util.List;
 
 public class AddCategory implements Action {
@@ -27,11 +28,7 @@ public class AddCategory implements Action {
             }
             CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
             List<Category> categories = null;
-            try {
-                categories = categoryDao.getAll();
-            } catch (SQLException e) {
-                log.error(e);
-            }
+            categories = categoryDao.getAll();
             String name = req.getParameter("name");
             if (name == null) {
                 httpSession.setAttribute("categories", categories);
@@ -54,11 +51,7 @@ public class AddCategory implements Action {
                 }
             }
             Category category = new Category(name, parentId, description);
-            try {
-                categoryDao.create(category);
-            } catch (SQLException e) {
-                log.error(e);
-            }
+            categoryDao.create(category);
             categoryDao.returnConnection();
             return new ActionResult("controller?action=showCategories", true);
         } catch (Exception e) {

@@ -1,5 +1,7 @@
-package com.epam.kozhanbergenov.shop.action;
+package com.epam.kozhanbergenov.shop.action.adminSide;
 
+import com.epam.kozhanbergenov.shop.action.Action;
+import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.CategoryDao;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
@@ -11,7 +13,6 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 public class EditCategory implements Action {
     private static final Logger log = Logger.getLogger(EditCategory.class);
@@ -48,11 +49,7 @@ public class EditCategory implements Action {
             log.debug("parent ID = " + parentId);
             Category category = new Category(name, parentId, description);
             category.setId(id);
-            try {
-                categoryDao.update(category);
-            } catch (SQLException e) {
-                log.error(e);
-            }
+            categoryDao.update(category);
             categoryDao.returnConnection();
             return new ActionResult("controller?action=showCategories", true);
         } catch (Exception e) {

@@ -1,6 +1,9 @@
-package com.epam.kozhanbergenov.shop.action;
+package com.epam.kozhanbergenov.shop.action.adminSide;
 
+import com.epam.kozhanbergenov.shop.action.Action;
+import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.BasketDao;
+import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2BasketDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.util.ConfigurationManager;
@@ -8,7 +11,6 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.SQLException;
 
 public class DeleteOldBaskets implements Action {
     private static final Logger log = Logger.getLogger(DeleteOldBaskets.class);
@@ -21,7 +23,7 @@ public class DeleteOldBaskets implements Action {
         BasketDao basketDao = new H2BasketDao(ConnectionPool.getConnection());
         try {
             basketDao.deleteOld(BASKET_SAVE_DAYS);
-        } catch (SQLException e) {
+        } catch (DaoException e) {
             log.error(e);
         }
         return new ActionResult("controller?action=showAdminPanel&message=oldBasketsRemoved", true);

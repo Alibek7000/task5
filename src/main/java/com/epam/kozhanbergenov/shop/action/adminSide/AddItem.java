@@ -1,6 +1,10 @@
-package com.epam.kozhanbergenov.shop.action;
+package com.epam.kozhanbergenov.shop.action.adminSide;
 
-import com.epam.kozhanbergenov.shop.dao.*;
+import com.epam.kozhanbergenov.shop.action.Action;
+import com.epam.kozhanbergenov.shop.action.ActionResult;
+import com.epam.kozhanbergenov.shop.dao.CategoryDao;
+import com.epam.kozhanbergenov.shop.dao.DaoFactory;
+import com.epam.kozhanbergenov.shop.dao.ItemDao;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
@@ -15,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import java.io.*;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -32,11 +35,7 @@ public class AddItem implements Action {
             }
             List<Category> categories = null;
             CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
-            try {
-                categories = categoryDao.getAll();
-            } catch (SQLException e) {
-                log.error(e);
-            }
+            categories = categoryDao.getAll();
             String name = req.getParameter("name");
             String description = req.getParameter("description");
             if (name == null && description == null) {

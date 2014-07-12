@@ -13,12 +13,12 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
 
-public class LoginAction implements Action {
-    private static final Logger log = Logger.getLogger(LoginAction.class);
+public class Login implements Action {
+    private static final Logger log = Logger.getLogger(Login.class);
 
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
-        log.debug("LoginAction was started");
+        log.debug("Login was started");
 
         String login = req.getParameter("login");
         log.debug("Login is " + login);

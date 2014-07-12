@@ -1,6 +1,7 @@
 package com.epam.kozhanbergenov.shop.action;
 
 
+import com.epam.kozhanbergenov.shop.action.adminSide.*;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,7 @@ public final class ActionFactory {
 
     private ActionFactory() {
         actions.put("welcome", new WelcomeAction());
-        actions.put("login", new LoginAction());
+        actions.put("login", new Login());
         actions.put("registration", new Registration());
         actions.put("showItems", new ShowItems());
         actions.put("aboutItem", new AboutItem());
