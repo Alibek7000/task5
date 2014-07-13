@@ -27,7 +27,7 @@ public class Basket implements Action {
             return new ActionResult("controller?action=showBasket", true);
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 }

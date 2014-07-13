@@ -71,10 +71,10 @@ public class ShowCategoryItems implements Action {
                 httpSession.setAttribute("categoryName", categoryName);
                 httpSession.setAttribute("categoryRuName", categoryRuName);
             }
-            return new ActionResult("/WEB-INF/categoryItems.jsp");
+            return new ActionResult("/WEB-INF/jsp/categoryItems.jsp");
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 }

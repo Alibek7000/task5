@@ -49,7 +49,7 @@ public class BuyItemButton implements Action {
                         + item.getId() + "&errorMessage=error.integer");
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 }

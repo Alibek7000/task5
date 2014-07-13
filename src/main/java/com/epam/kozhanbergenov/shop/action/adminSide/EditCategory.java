@@ -42,7 +42,7 @@ public class EditCategory implements Action {
             }
 
             if (name == null && description == null) {
-                return new ActionResult("/WEB-INF/editCategory.jsp");
+                return new ActionResult("/WEB-INF/jsp/editCategory.jsp");
             }
 
             if (editCategory != null) id = editCategory.getId();

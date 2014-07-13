@@ -25,10 +25,10 @@ public class ShowCategories implements Action {
             categoryDao.returnConnection();
             HttpSession httpSession = req.getSession();
             if (categoryList != null) httpSession.setAttribute("categories", categoryList);
-            return new ActionResult("/WEB-INF/categories.jsp");
+            return new ActionResult("/WEB-INF/jsp/categories.jsp");
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 

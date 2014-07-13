@@ -31,10 +31,10 @@ public class ShowBasket implements Action {
             httpSession.setAttribute("totalSum", totalSum);
             log.debug("items quantity = " + items.size());
             log.debug("totalSum = " + totalSum);
-            return new ActionResult("/WEB-INF/basket.jsp");
+            return new ActionResult("/WEB-INF/jsp/basket.jsp");
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 }

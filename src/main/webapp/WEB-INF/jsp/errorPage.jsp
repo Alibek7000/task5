@@ -14,7 +14,7 @@
 
 <body>
 <div align="center">
-    <img src="../images/404.png" width="300"/>
+    <img src="images/404.png" width="300"/>
     <br>
     <a href="${pageContext.request.contextPath}/"><fmt:message key="error.returnToMain"/></a>
     <br>

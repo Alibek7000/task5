@@ -17,12 +17,18 @@
 <div id="sideBlock">
     <jsp:include page="/WEB-INF/jsp/sideBlock.jsp"/>
 </div>
-
 <div id="main">
     <div id="bigText">
         <table>
             <tr>
-                <th colspan="2"><fmt:message key="table.item"/></th>
+                <th colspan="2">
+                    <fmt:message key="table.item"/>
+                    <c:set var="sortingUpByName" value="${param.sortingUpByName}"/>
+                    <a href="controller?action=showItems&page=${currentPage}&sortingUpByName=true"
+                       onclick="${sortingUp}='true'" style="text-decoration: none;">↑</a>
+                    <a href="controller?action=showItems&page=${currentPage}&sortingUpByName=false"
+                       onclick="${sortingUp}='false'" style="text-decoration: none;">↓</a>
+                </th>
                 <th><fmt:message key="table.price"/>
                     <c:set var="sortingUp" value="${param.sortingUp}"/>
                     <a href="controller?action=showItems&page=${currentPage}&sortingUp=true"
@@ -43,7 +49,7 @@
 
                 <c:forEach items="${sessionScope.availableItems}" var="entry">
                 <c:set var="item" value="${entry.key}"/>
-                <td><a href="controller?action=aboutItem&id=${item.getId()}"><img src="images/items/${item.getId()}.png"
+                <td><a href="controller?action=aboutItem&id=${item.getId()}"><img src="${sessionScope.pathToImages}/${item.getId()}.png"
                                                                                   width="150px"/></a></td>
                 <td><a href="controller?action=aboutItem&id=${item.getId()}"><c:out value="${item.getName()}"/></a></td>
                 <fmt:formatNumber var="price" value="${item.getPrice()}"
@@ -88,6 +94,8 @@
         <c:if test="${sessionScope.user.getClass().getSimpleName() == 'Administrator'}">
             <button onClick="location.href='controller?action=addItem'"><fmt:message key="button.add"/></button>
         </c:if>
+        ${pathToImages}
+        <c:out value="${pathToImages}/${item.getId()}.png"/>
     </div>
 </div>
 </body>

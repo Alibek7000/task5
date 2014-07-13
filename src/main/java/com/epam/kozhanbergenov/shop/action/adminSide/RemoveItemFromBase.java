@@ -36,7 +36,7 @@ public class RemoveItemFromBase implements Action {
                 log.debug("Picture delete operation is failed.");
             }
             itemDao.returnConnection();
-            return new ActionResult("/shop/index.jsp", true);
+            return new ActionResult("/index.jsp", true);
         } catch (Exception e) {
             log.error(e);
             return new ActionResult("WEB-INF/jsp/errorPage.jsp");

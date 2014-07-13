@@ -8,6 +8,7 @@ import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.Item;
 import com.epam.kozhanbergenov.shop.entity.User;
+import com.epam.kozhanbergenov.shop.util.ConfigurationManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -19,6 +20,8 @@ import java.io.*;
 
 public class EditItem implements Action {
     private static final Logger log = Logger.getLogger(EditItem.class);
+    private static ConfigurationManager configurationManager = new ConfigurationManager("shopConfiguration.properties");
+    private static final String PATH_TO_IMAGES = configurationManager.getValue("pathToImages");
 
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -70,7 +73,7 @@ public class EditItem implements Action {
             } catch (Exception e) {
                 log.error(e);
                 em4 = "error.doubleField";
-                return new ActionResult("/WEB-INF/editItem.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/editItem.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
             }
 
@@ -117,10 +120,8 @@ public class EditItem implements Action {
             if (fileContent != null) {
                 log.debug("fileContent != null");
                 try {
-                    log.debug(req.getSession().getServletContext().getRealPath("/"));
-
-                    outputStream = new FileOutputStream(new File(req.getSession().getServletContext().getRealPath("/") + "/images/items/" + id + ".png"));
-
+                    log.debug(PATH_TO_IMAGES);
+                    outputStream = new FileOutputStream(new File(PATH_TO_IMAGES +"/"+ id + ".png"));
                 } catch (FileNotFoundException e) {
                     log.error(e);
                 }

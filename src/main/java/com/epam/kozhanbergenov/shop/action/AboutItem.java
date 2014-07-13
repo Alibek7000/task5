@@ -25,7 +25,7 @@ public class AboutItem implements Action {
             id = new Integer(req.getParameter("id"));
         } catch (NumberFormatException e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
         Item item = null;
         try {
@@ -36,7 +36,7 @@ public class AboutItem implements Action {
         itemDao.returnConnection();
         HttpSession httpSession = req.getSession();
         if (item != null) httpSession.setAttribute("item", item);
-        return new ActionResult("/WEB-INF/aboutItem.jsp");
+        return new ActionResult("/WEB-INF/jsp/aboutItem.jsp");
     }
 
 }

@@ -33,10 +33,10 @@ public class ShowOrder implements Action {
             HttpSession httpSession = req.getSession();
             log.debug(orderItems);
             httpSession.setAttribute("orderItems", orderItems);
-            return new ActionResult("/WEB-INF/showOrder.jsp?message=" + message + "&id" + id);
+            return new ActionResult("/WEB-INF/jsp/showOrder.jsp?message=" + message + "&id" + id);
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 }

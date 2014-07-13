@@ -28,7 +28,7 @@ public class Registration implements Action {
             String address = req.getParameter("address");
             String phoneNumber = req.getParameter("phoneNumber");
             if (login == null && password == null && name == null && surname == null && address == null) {
-                return new ActionResult("/WEB-INF/registration.jsp");
+                return new ActionResult("/WEB-INF/jsp/registration.jsp");
             }
             String em1 = "";
             String em2 = "";
@@ -47,13 +47,13 @@ public class Registration implements Action {
 
             if (login.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty() || address.isEmpty()) {
                 userDao.returnConnection();
-                return new ActionResult("/WEB-INF/registration.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/registration.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4 + "&em5=" + em5 + "&em6=" + em6);
             }
 
             if (password.length() < 6) {
                 em2 = "error.shortPassword";
-                return new ActionResult("/WEB-INF/registration.jsp?em1="
+                return new ActionResult("/WEB-INF/jsp/registration.jsp?em1="
                         + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4 + "&em5=" + em5 + "&em6=" + em6);
             }
             if (userDao.checkLogin(login)) {
@@ -67,11 +67,11 @@ public class Registration implements Action {
                 return new ActionResult("controller?action=welcome", true);
             } else {
                 userDao.returnConnection();
-                return new ActionResult("/WEB-INF/registration.jsp?em1=error.usedLogin");
+                return new ActionResult("/WEB-INF/jsp/registration.jsp?em1=error.usedLogin");
             }
         } catch (Exception e) {
             log.error(e);
-            return new ActionResult("WEB-INF/errorPage.jsp");
+            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
         }
     }
 

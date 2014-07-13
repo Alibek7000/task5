@@ -20,10 +20,11 @@
     <div id="bigText">
         <c:set var="item" value="${sessionScope.item}"/>
         <h2><c:out value="${item.getName()}"/></h2>
-
+        <c:set var="pathToImage" value="${sessionScope.pathToImages}${item.getId()}.png"/>
         <div id="pic">
-            <img src="images/items/${item.getId()}.png" alt="" width="250" tabindex="0" class="zoom-images"/>
+            <img src="D:/shop/images/items/${item.getId()}.png" alt="" width="250" tabindex="0" class="zoom-images"/>
         </div>
+        <img src="${pathToImage}"  width="250"/>
         ${item.getDescription()}
         <br>
         <fmt:formatNumber var="price" value="${item.getPrice()}"
@@ -56,6 +57,7 @@
                 </button>
             </td>
         </c:if>
+        ${pathToImage}
     </div>
 </div>
 </html>

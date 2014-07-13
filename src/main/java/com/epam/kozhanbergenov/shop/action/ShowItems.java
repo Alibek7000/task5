@@ -22,6 +22,7 @@ public class ShowItems implements Action {
     private static final Logger log = Logger.getLogger(ShowItems.class);
     private static final ConfigurationManager configurationManager = new ConfigurationManager("shopConfiguration.properties");
     private final static int RECORDS_PER_PAGE = new Integer(configurationManager.getValue("itemsPerPage"));
+    private static final String PATH_TO_IMAGES = configurationManager.getValue("pathToImages");
 
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -54,6 +55,7 @@ public class ShowItems implements Action {
 
             itemDao.returnConnection();
             if (itemIntegerMap != null) httpSession.setAttribute("availableItems", itemIntegerMap);
+            httpSession.setAttribute("pathToImages", PATH_TO_IMAGES);
             return new ActionResult("WEB-INF/jsp/catalog.jsp");
         } catch (Exception e) {
             log.error(e);

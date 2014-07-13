@@ -11,6 +11,6 @@ public class ShowError implements Action {
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         log.debug("ShowError action was started");
-        return new ActionResult("WEB-INF/errorPage.jsp");
+        return new ActionResult("WEB-INF/jsp/errorPage.jsp");
     }
 }
