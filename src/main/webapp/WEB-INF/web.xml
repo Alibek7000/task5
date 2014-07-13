@@ -7,6 +7,10 @@
         <servlet-name>Controller</servlet-name>
         <servlet-class>com.epam.kozhanbergenov.shop.servlet.Controller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ImageController</servlet-name>
+        <servlet-class>com.epam.kozhanbergenov.shop.servlet.ImageController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/controller</url-pattern>

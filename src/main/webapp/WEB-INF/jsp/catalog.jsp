@@ -49,7 +49,7 @@
 
                 <c:forEach items="${sessionScope.availableItems}" var="entry">
                 <c:set var="item" value="${entry.key}"/>
-                <td><a href="controller?action=aboutItem&id=${item.getId()}"><img src="${sessionScope.pathToImages}/${item.getId()}.png"
+                <td><a href="controller?action=aboutItem&id=${item.getId()}"><img src=<img src="imageController?pathToImage=${sessionScope.pathToImages}/${item.getId()}.png"
                                                                                   width="150px"/></a></td>
                 <td><a href="controller?action=aboutItem&id=${item.getId()}"><c:out value="${item.getName()}"/></a></td>
                 <fmt:formatNumber var="price" value="${item.getPrice()}"

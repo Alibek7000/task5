@@ -14,6 +14,7 @@ public class ImageController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.debug("ImageController was started");
         ServletOutputStream out = resp.getOutputStream();
         byte[] image = null;
         try {
