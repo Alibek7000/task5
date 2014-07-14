@@ -13,7 +13,7 @@ public interface ItemDao {
 
     void update(Item item, int quantity) throws DaoException;
 
-    Map<Item, Integer> getAll(int offset, int noOfRecords, boolean sortingUp) throws DaoException;
+    Map<Item, Integer> getAll(int offset, int noOfRecords, boolean sortingByName, boolean sortingByPrice, boolean sortingUp) throws DaoException;
 
     int getNoOfRecords(int categoryId) throws DaoException;
 
@@ -25,9 +25,9 @@ public interface ItemDao {
 
     boolean enoughQuantity(Map<Item, Integer> items) throws DaoException;
 
-    Map<Item, Integer> getAllByCategory(int categoryId, int offset, int noOfRecords, boolean sortingUp) throws DaoException;
+    Map<Item, Integer> getAllByCategory(int categoryId, int offset, int noOfRecords, boolean sortingByName, boolean sortingByPrice, boolean sortingUp) throws DaoException;
 
-    Map<Item, Integer> getAllByParentCategory(int categoryId, int offset, int noOfRecords, boolean sortingUp) throws DaoException;
+    Map<Item, Integer> getAllByParentCategory(int categoryId, int offset, int noOfRecords, boolean sortingByName, boolean sortingByPrice, boolean sortingUp) throws DaoException;
 
     void returnConnection();
 }

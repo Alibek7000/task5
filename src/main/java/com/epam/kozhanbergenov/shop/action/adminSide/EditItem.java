@@ -121,7 +121,7 @@ public class EditItem implements Action {
                 log.debug("fileContent != null");
                 try {
                     log.debug(PATH_TO_IMAGES);
-                    outputStream = new FileOutputStream(new File(PATH_TO_IMAGES +"/"+ id + ".png"));
+                    outputStream = new FileOutputStream(new File(PATH_TO_IMAGES + "/" + id + ".png"));
                 } catch (FileNotFoundException e) {
                     log.error(e);
                 }

@@ -129,20 +129,26 @@ public class H2ItemDao implements ItemDao {
     }
 
     @Override
-    public Map<Item, Integer> getAll(int offset, int noOfRecords, boolean sortingUp) throws DaoException {
+    public Map<Item, Integer> getAll(int offset, int noOfRecords, boolean sortingByName, boolean sortingByPrice, boolean sortingUp) throws DaoException {
         try {
             log.debug("offset=" + offset + " noOfRecords=" + noOfRecords);
             String sql = "";
+            String orderBy;
+            String direction;
             if (offset == 0 && noOfRecords == 0) {
                 sql = "SELECT * FROM ITEM";
             } else {
-                if (!sortingUp)
-                    sql = "SELECT * FROM ITEM  ORDER BY PRICE DESC LIMIT " + offset + ", " + noOfRecords;
-                else
-                    sql = "SELECT * FROM ITEM  ORDER BY PRICE ASC LIMIT " + offset + ", " + noOfRecords;
+                if (sortingByName)
+                    orderBy = "NAME";
+                else orderBy = "PRICE";
+                if (sortingUp)
+                    direction = "ASC";
+                else direction = "DESC";
+                sql = "SELECT * FROM ITEM  ORDER BY " + orderBy + " " + direction + " LIMIT " + offset + "," + noOfRecords + ";";
             }
             Statement stm = connection.createStatement();
             ResultSet rs = stm.executeQuery(sql);
+
             Map<Item, Integer> itemIntegerMap = new LinkedHashMap<>();
             while (rs.next()) {
                 log.debug("Found item..");
@@ -280,13 +286,18 @@ public class H2ItemDao implements ItemDao {
     }
 
     @Override
-    public Map<Item, Integer> getAllByCategory(int categoryId, int offset, int noOfRecords, boolean sortingUp) throws DaoException {
+    public Map<Item, Integer> getAllByCategory(int categoryId,  int offset, int noOfRecords, boolean sortingByName, boolean sortingByPrice, boolean sortingUp) throws DaoException {
         try {
             String sql = "";
-            if (!sortingUp)
-                sql = "SELECT * FROM ITEM WHERE CATEGORY_ID = ? ORDER BY PRICE DESC LIMIT " + offset + ", " + noOfRecords;
-            else
-                sql = "SELECT * FROM ITEM WHERE CATEGORY_ID = ? ORDER BY PRICE ASC LIMIT " + offset + ", " + noOfRecords;
+            String orderBy;
+            String direction;
+            if (sortingByName)
+                orderBy = "NAME";
+            else orderBy = "PRICE";
+            if (sortingUp)
+                direction = "ASC";
+            else direction = "DESC";
+                sql = "SELECT * FROM ITEM WHERE CATEGORY_ID = ? ORDER BY "+orderBy+" " + direction+" LIMIT " + offset + ", " + noOfRecords;
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, categoryId);
             ResultSet rs = stm.executeQuery();
@@ -312,13 +323,18 @@ public class H2ItemDao implements ItemDao {
     }
 
     @Override
-    public Map<Item, Integer> getAllByParentCategory(int categoryId, int offset, int noOfRecords, boolean sortingUp) throws DaoException {
+    public Map<Item, Integer> getAllByParentCategory(int categoryId, int offset, int noOfRecords, boolean sortingByName, boolean sortingByPrice, boolean sortingUp) throws DaoException {
         try {
             String sql = "";
-            if (!sortingUp)
-                sql = "SELECT * FROM ITEM WHERE CATEGORY_ID=? OR CATEGORY_ID IN (SELECT ID FROM CATEGORY WHERE PARENT_ID= ?) ORDER BY PRICE DESC LIMIT " + offset + ", " + noOfRecords;
-            else
-                sql = "SELECT * FROM ITEM WHERE CATEGORY_ID=? OR CATEGORY_ID IN (SELECT ID FROM CATEGORY WHERE PARENT_ID= ?)  ORDER BY PRICE ASC LIMIT " + offset + ", " + noOfRecords;
+            String orderBy;
+            String direction;
+            if (sortingByName)
+                    orderBy = "NAME";
+                else orderBy = "PRICE";
+                if (sortingUp)
+                    direction = "ASC";
+                else direction = "DESC";
+                sql = "SELECT * FROM ITEM WHERE CATEGORY_ID=? OR CATEGORY_ID IN (SELECT ID FROM CATEGORY WHERE PARENT_ID= ?) ORDER BY  " + orderBy + " " + direction + " LIMIT " + offset + ", " + noOfRecords;
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, categoryId);
             stm.setInt(2, categoryId);
@@ -326,7 +342,7 @@ public class H2ItemDao implements ItemDao {
             Map<Item, Integer> itemIntegerMap = new LinkedHashMap<>();
             if (!rs.next()) {
                 log.debug("Category has no children");
-                itemIntegerMap = getAllByCategory(categoryId, offset, noOfRecords, sortingUp);
+                itemIntegerMap = getAllByCategory(categoryId, offset, noOfRecords, sortingByName, sortingByPrice, sortingUp);
             } else do {
                 log.debug("Found item..");
                 Item item = new Item();
@@ -347,8 +363,6 @@ public class H2ItemDao implements ItemDao {
             throw new DaoException(e);
         }
     }
-
-
     @Override
     public void returnConnection() {
         if (connection != null)

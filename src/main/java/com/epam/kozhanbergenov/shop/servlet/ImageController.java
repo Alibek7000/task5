@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
 public class ImageController extends HttpServlet {
-    private static final Logger log = Logger.getLogger(Controller.class);
+    private static final Logger log = Logger.getLogger(ImageController.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,10 +22,13 @@ public class ImageController extends HttpServlet {
         } catch (Exception e) {
             log.error(e);
         }
-        out.write(image != null ? image : new byte[0]);
+        if (image != null)
+            out.write(image);
+        else
+            resp.sendError(404);
     }
 
-    public static byte[] getImage (String imageFileName) throws Exception {
+    public static byte[] getImage(String imageFileName) throws Exception {
         if (imageFileName == null) {
             return null;
         }
@@ -34,17 +37,16 @@ public class ImageController extends HttpServlet {
         try {
             log.debug(imageFileName);
             inputStream = new FileInputStream(new File(imageFileName));
-
         } catch (FileNotFoundException e) {
             log.error(e);
+            log.debug("FileName " + imageFileName);
         }
         int read = 0;
         byte[] bytes = new byte[1024];
-           while(( read = inputStream.read(bytes)) > 0 ) {
-               out.write(bytes, 0, read);
-           }
+        while ((read = inputStream.read(bytes)) > 0) {
+            out.write(bytes, 0, read);
+        }
         byte[] imageData = out.toByteArray();
         return imageData;
-
     }
 }

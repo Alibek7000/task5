@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2OrderDao;
 import com.epam.kozhanbergenov.shop.dao.OrderDao;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2OrderDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.Order;
@@ -34,10 +34,10 @@ public class SendingOrder implements Action {
 
             Order order = null;
 
-                order = orderDao.read(id);
+            order = orderDao.read(id);
 
             order.setSent(value);
-             orderDao.setSent(order, value);
+            orderDao.setSent(order, value);
 
             orderDao.returnConnection();
             log.debug("is sent " + order.isSent());

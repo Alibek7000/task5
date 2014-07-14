@@ -99,7 +99,7 @@ public class AddItem implements Action {
             }
 
             Map<Item, Integer> items = null;
-            items = itemDao.getAll(0, 0, true);
+            items = itemDao.getAll(0, 0, false, true, true);
             for (Item item : items.keySet()) {
                 if (item.getName().equals(name)) {
                     itemDao.returnConnection();

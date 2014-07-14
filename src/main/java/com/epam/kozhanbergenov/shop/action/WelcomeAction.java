@@ -1,7 +1,6 @@
 package com.epam.kozhanbergenov.shop.action;
 
 import com.epam.kozhanbergenov.shop.entity.Administrator;
-import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.User;
 import org.apache.log4j.Logger;
 
