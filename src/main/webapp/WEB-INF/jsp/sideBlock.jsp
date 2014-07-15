@@ -12,10 +12,7 @@
 </head>
 <div class="row">
     <div id="categories">
-        <c:choose>
-            <c:when test="${language == 'ru_RU'}"><myTag:getCategoryListInRU/></c:when>
-            <c:otherwise> <myTag:getCategoryList/></c:otherwise>
-        </c:choose>
+        <myTag:getCategoryList/>
     </div>
 </div>
 </html>

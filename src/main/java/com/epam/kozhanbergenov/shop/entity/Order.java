@@ -1,5 +1,7 @@
 package com.epam.kozhanbergenov.shop.entity;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.Map;
 
@@ -9,17 +11,17 @@ public class Order {
     private Map<Item, Integer> itemIntegerMap;
     Date orderDate;
     boolean sent = false;
-    double amount;
+    BigDecimal amount;
 
     public Order() {
     }
 
     public double getAmount() {
-        return amount;
+        return amount.setScale(2, RoundingMode.UP).doubleValue();
     }
 
     public void setAmount(double amount) {
-        this.amount = amount;
+        this.amount = new BigDecimal(amount);
     }
 
     public boolean isSent() {

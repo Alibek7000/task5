@@ -11,8 +11,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
+import java.util.Locale;
 
 public class GetCategoryList extends TagSupport {
     private static final Logger log = Logger.getLogger(GetCategoryList.class);
@@ -26,8 +26,11 @@ public class GetCategoryList extends TagSupport {
         } catch (DaoException e) {
             log.error(e);
         }
-
-        String s = "<h3>Categories</h3>";
+        Locale locale = (Locale) pageContext.findAttribute("language");
+        String s;
+        if (locale.getLanguage().equals("en"))
+            s = "<h3>Categories</h3>";
+        else s = "<h3>Категории</h3>";
         for (Category category : categoryList) {
             List<Category> childrenList = null;
             try {
@@ -36,18 +39,16 @@ public class GetCategoryList extends TagSupport {
                 log.error(e);
             }
             s += "<strong><a href=\"controller?action=showCategoryItems&parentId=0&categoryId=" + category.getId() + "\">"
-                    + category.getName() + "</a></strong>";
+                    + (locale.getLanguage().equals("en") ? category.getName() : category.getRuName()) + "</a></strong>";
             if (childrenList != null) {
                 s += "<ul>";
                 for (Category category1 : childrenList) {
                     s += "<li><a href=\"controller?action=showCategoryItems&parentId=" + category1.getParentId() + "&categoryId=" + category1.getId() + "\">"
-                            + category1.getName() + "</a>" + "</li>";
+                            + (locale.getLanguage().equals("en") ? category1.getName() : category1.getRuName()) + "</a>" + "</li>";
                 }
                 s += "</ul>";
             }
-
         }
-
         categoryDao.returnConnection();
         try {
             JspWriter out = pageContext.getOut();

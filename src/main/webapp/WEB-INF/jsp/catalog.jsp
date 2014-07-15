@@ -85,7 +85,9 @@
                     <td>${i}</td>
                 </c:when>
                 <c:otherwise>
-                    <td><a href="controller?action=showItems&page=${i}&sortingByPrice=${sortingByPrice}&sortingByName=${sortingByName}&sortingUp=${sortingUp}">${i}&nbsp</a></td>
+                    <td>
+                        <a href="controller?action=showItems&page=${i}&sortingByPrice=${sortingByPrice}&sortingByName=${sortingByName}&sortingUp=${sortingUp}">${i}&nbsp</a>
+                    </td>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
