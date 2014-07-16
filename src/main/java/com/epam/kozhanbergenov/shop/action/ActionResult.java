@@ -2,7 +2,7 @@ package com.epam.kozhanbergenov.shop.action;
 
 public class ActionResult {
     private String page;
-    private boolean redirect = false;
+    private boolean redirect;
 
     public ActionResult(String page) {
         this.page = page;

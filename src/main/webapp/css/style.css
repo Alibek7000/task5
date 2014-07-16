@@ -51,6 +51,38 @@ html, body {
     padding: 0;
 }
 
+.zoom-images {
+    cursor: zoom-in;
+}
+.zoom-images:focus {
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-width: 99%;
+    max-height: 99%;
+    pointer-events: none;
+    box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
+}
+.zoom-images:focus ~ * {
+    pointer-events: none;
+}
+
+button {
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+    background: rgb(212,75,56);
+    padding: .5em 1.2em;
+    outline: none;
+}
+button:hover { background: rgb(232,95,76); }
+button:active { background: rgb(152,15,0); }
+
 #categories {
     text-align: left;
     padding-left: 20px;
@@ -135,35 +167,5 @@ table td{
     left: 50%;
     top: 50%;
 }
-.zoom-images {
-    cursor: zoom-in;
-}
-.zoom-images:focus {
-    position: fixed;
-    z-index: 10;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: auto;
-    height: auto;
-    max-width: 99%;
-    max-height: 99%;
-    pointer-events: none;
-    box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
-}
-.zoom-images:focus ~ * {
-    pointer-events: none;
-}
 
-button {
-    color: #fff;
-    text-decoration: none;
-    user-select: none;
-    background: rgb(212,75,56);
-    padding: .5em 1.2em;
-    outline: none;
-}
-button:hover { background: rgb(232,95,76); }
-button:active { background: rgb(152,15,0); }
 

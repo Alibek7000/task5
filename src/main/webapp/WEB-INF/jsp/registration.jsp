@@ -25,40 +25,35 @@
             <input type="hidden" name="action" value="registration">
             <fmt:message key="registration.login"/>
             <br>
-            <input type="text" name="login" maxlength="20">
-            <c:if test="${not empty param.em1}">
-                <fmt:message key="${param.em1}"/>
-            </c:if><br>
+            <input type="text" name="login" maxlength="20" value="${param.login}">
+            <font color="#ff0000"><fmt:message key="${param.em1}" /></font>
+            <br>
             <fmt:message key="registration.password"/>
             <br>
             <input type="password" name="password" maxlength="25">
-            <c:if test="${not empty param.em2}">
-                <fmt:message key="${param.em2}"/>
-            </c:if><br>
+            <font color="#ff0000"><fmt:message key="${param.em2}"/></font>
+            <br>
             <fmt:message key="registration.name"/>
             <br>
-            <input type="text" name="name" maxlength="40">
-            <c:if test="${not empty param.em3}">
-                <fmt:message key="${param.em3}"/>
-            </c:if><br>
+            <input type="text" name="name" maxlength="40" value="${param.name}">
+            <font color="#ff0000"><fmt:message key="${param.em3}"/></font>
+            <br>
             <fmt:message key="registration.surname"/>
             <br>
-            <input type="text" name="surname" maxlength="40">
-            <c:if test="${not empty param.em4}">
-                <fmt:message key="${param.em4}"/>
-            </c:if><br>
+            <input type="text" name="surname" maxlength="40" value="${param.surname}">
+            <font color="#ff0000"><fmt:message key="${param.em4}"/></font>
+            <br>
             <fmt:message key="registration.address"/>
             <br>
-            <textarea rows="3" cols="20" wrap="physical" name="address" maxlength="200"></textarea>
-            <c:if test="${not empty param.em5}">
-                <fmt:message key="${param.em5}"/>
-            </c:if><br>
+            <textarea rows="3" cols="20" wrap="physical" name="address" maxlength="200">${param.address}</textarea>
+            <font color="#ff0000"><fmt:message key="${param.em5}"/></font>
+            <br>
             <fmt:message key="registration.phoneNumber"/>
             <br>
-            <input type="text" name="phoneNumber" maxlength="40">
-            <c:if test="${not empty param.em6}">
-                <fmt:message key="${param.em6}"/>
-            </c:if><br><br>
+            <input type="text" name="phoneNumber" maxlength="40"value="${param.phoneNumber}">
+            <font color="#ff0000"><fmt:message key="${param.em6}"/></font>
+            <br><br>
+            <font color="#ff0000">*</font> - <fmt:message key="registration.requiredFields"/><br>
             <button name="send"><fmt:message key="registration.register"/></button>
         </form>
     </div>

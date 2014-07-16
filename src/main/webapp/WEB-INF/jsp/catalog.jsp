@@ -66,9 +66,9 @@
                         </button>
                     </td>
                     <td>
-                        <button onClick="location.href='controller?action=removeItemFromBase&id=${item.getId()}'">
-                            <fmt:message
-                                    key="table.remove"/>
+                        <button onclick="if(confirm('<fmt:message key="table.remove"/>?'))
+                                {location.href='controller?action=removeItemFromBase&id=${item.getId()}';}else{return false;}">
+                            <fmt:message key="table.remove"/>
                         </button>
                     </td>
                 </c:if>

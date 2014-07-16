@@ -14,7 +14,7 @@ public class Basket implements Action {
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         log.debug("BasketAction was started");
-        try {
+//        try {
             HttpSession httpSession = req.getSession();
             Item item = (Item) httpSession.getAttribute("item");
             log.debug(item);
@@ -25,9 +25,9 @@ public class Basket implements Action {
             httpSession.removeAttribute("items");
             httpSession.setAttribute("items", basketItems.getBasketItems());
             return new ActionResult("controller?action=showBasket", true);
-        } catch (Exception e) {
-            log.error(e);
-            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
-        }
+//        } catch (Exception e) {
+//            log.error(e);
+//            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
+//        }
     }
 }

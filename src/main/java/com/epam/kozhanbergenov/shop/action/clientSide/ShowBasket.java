@@ -19,7 +19,6 @@ public class ShowBasket implements Action {
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         log.debug("ShowBasket action was started");
-        try {
             Map<Item, Integer> items = new BasketItems(req, resp).getBasketItems();
             double totalSum = 0;
             for (Map.Entry<Item, Integer> entry : items.entrySet()) {
@@ -32,9 +31,7 @@ public class ShowBasket implements Action {
             log.debug("items quantity = " + items.size());
             log.debug("totalSum = " + totalSum);
             return new ActionResult("/WEB-INF/jsp/basket.jsp");
-        } catch (Exception e) {
-            log.error(e);
-            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
-        }
+//            return new ActionResult("WEB-INF/jsp/errorPage.jsp");
+//        }
     }
 }

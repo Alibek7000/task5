@@ -43,7 +43,6 @@
             </c:if><br>
             <fmt:message key="table.price"/>
             <br>
-            <%--<fmt:formatNumber var='price' type="number" maxFractionDigits='2' value="${sessionScope.editItem.getPrice()}}"/>--%>
             <input type="text" name="price" value="${sessionScope.editItem.getPrice()}">
             <c:if test="${not empty param.em4}">
                 <fmt:message key="${param.em4}"/>

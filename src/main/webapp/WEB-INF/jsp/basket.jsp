@@ -13,10 +13,10 @@
     <title>BikeShop - <fmt:message key="header.basket"/></title>
     <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/style.css"/>
 </head>
-<jsp:include page="/WEB-INF/jsp/header.jsp.jsp"/>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <body>
 <div id="sideBlock">
-    <jsp:include page="/WEB-INF/jsp/sideBlock.jsp.jsp"/>
+    <jsp:include page="/WEB-INF/jsp/sideBlock.jsp"/>
 </div>
 <div id="main">
     <div id="bigText">
@@ -35,7 +35,7 @@
                             <c:set var="item" value="${entry.key}"/>
                             <td><c:out value="${item.getId()}"/></td>
                             <td><a href="controller?action=aboutItem&id=${item.getId()}"><img
-                                    src="images/items/${item.getId()}.png"
+                                    src="imageController?pathToImage=${sessionScope.pathToImages}/${item.getId()}.png"
                                     width="150px"/></a></td>
                             <td><a href="controller?action=aboutItem&id=${item.getId()}"><c:out
                                     value="${item.getName()}"/></a>
