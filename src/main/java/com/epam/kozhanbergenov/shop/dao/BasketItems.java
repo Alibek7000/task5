@@ -67,6 +67,12 @@ public final class BasketItems {
             log.debug("basketItems " + basketItems);
             log.debug("basketItems.size() " + basketItems.size());
             Map<Item, Integer> cookieBasket = null;
+
+            try {
+                uuid = basketDao.getBasketIdByUserId(userId);
+            } catch (DaoException e) {
+                log.error(e);
+            }
             try {
                 log.debug("uuid = " + uuid);
                 log.debug("cookieBasketUuid = " + cookieBasketUuid);
@@ -74,15 +80,22 @@ public final class BasketItems {
             } catch (DaoException e) {
                 log.error(e);
             }
-            boolean diffUsers = false;
+            boolean isBaseHasSameUser = false;
+            boolean isInBaseOurUser = false;
+            boolean isItAlienBasket = false;
             try {
-                diffUsers = basketDao.getUserIdByBasketId(cookieBasketUuid) == userId;
-                log.debug("userId = "  + userId + "oldUserId = " + basketDao.getUserIdByBasketId(cookieBasketUuid));
-                log.debug(diffUsers);
+                isBaseHasSameUser = (basketDao.getUserIdByBasketId(cookieBasketUuid) != 0) ;
+                isInBaseOurUser = (basketDao.getUserIdByBasketId(cookieBasketUuid) == userId);
+                isItAlienBasket = isBaseHasSameUser && !cookieBasketUuid.equals(uuid);
+                log.debug("userId = "  + userId + " DBUserId = " + basketDao.getUserIdByBasketId(cookieBasketUuid));
+                log.debug(" isBaseHasSameUser " + isBaseHasSameUser + " isInBaseOurUser "+ isInBaseOurUser + " isItAlienBasket " + isItAlienBasket);
             } catch (DaoException e) {
                 log.error(e);
             }
-            if (cookieBasket != null && !(cookieBasketUuid == null) && !cookieBasketUuid.equals(uuid) && diffUsers) {
+            if (cookieBasket != null && cookieBasketUuid != null
+                    && !cookieBasketUuid.equals(uuid)
+                   && !isItAlienBasket
+                    ) {
                 log.debug("Cookie basket have something...");
                 Iterator<Map.Entry<Item, Integer>> iterator = cookieBasket.entrySet().iterator();
                 while (iterator.hasNext()) {
