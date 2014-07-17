@@ -5,11 +5,14 @@ import com.epam.kozhanbergenov.shop.dao.ItemDao;
 import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Item;
+import com.sun.xml.internal.ws.policy.sourcemodel.ModelNode;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class H2BasketDao implements BasketDao {
     private Connection connection;
@@ -20,63 +23,40 @@ public class H2BasketDao implements BasketDao {
     }
 
     @Override
-    public int create(int userId) throws DaoException {
-        try {
-            connection.setAutoCommit(false);
-        } catch (SQLException e) {
-            throw new DaoException(e);
-        }
-        int basketId = 0;
+    public UUID create(int userId) throws DaoException {
+        UUID uuid = UUID.randomUUID();
+        log.debug("creating new basket. Uuid is " + uuid);
         try {
             String sql;
             java.util.Date utilDate = new java.util.Date();
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+            sql = "INSERT INTO BASKET(ID, CLIENT_ID, BASKET_DATE) VALUES(?, ?, ?);";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setObject(1, uuid);
+            stm.setDate(3, sqlDate);
             if (userId != 0)
-                sql = "INSERT INTO BASKET(CLIENT_ID, BASKET_DATE) VALUES('" + userId + "','" + sqlDate + "');";
+                stm.setInt(2, userId);
             else
-                sql = "INSERT INTO BASKET(CLIENT_ID, BASKET_DATE) VALUES(NULL,'" + sqlDate + "');";
-            Statement stm = connection.createStatement();
-            try {
-                stm.executeUpdate(sql);
-            } catch (SQLException e) {
-                log.error(e);
-            }
-            ResultSet rs = stm.executeQuery("SELECT LAST_INSERT_ID() FROM BASKET");
-            rs.next();
-            basketId = rs.getInt(1);
-            connection.commit();
-            if (stm != null) {
-                stm.close();
-            }
+                stm.setNull(2, Types.NULL);
+            stm.executeUpdate();
         } catch (SQLException e) {
             log.error(e);
-            if (connection != null) {
-                try {
-                    log.error("Transaction is being rolled back");
-                    connection.rollback();
-                } catch (SQLException e1) {
-                    log.error(e1);
-                }
-            }
+            throw new DaoException(e);
+
         } finally {
             if (connection != null) {
-                try {
-                    connection.setAutoCommit(true);
-                } catch (SQLException e) {
-                    throw new DaoException(e);
-                }
                 ConnectionPool.returnConnection(connection);
             }
         }
-        return basketId;
+        return uuid;
     }
 
     @Override
-    public Map<Item, Integer> read(int basketId) throws DaoException {
+    public Map<Item, Integer> read(UUID uuid) throws DaoException {
         try {
             String sql = "SELECT * FROM ITEM_BASKET WHERE BASKET_ID = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, basketId);
+            stm.setObject(1, uuid);
             ResultSet rs = stm.executeQuery();
             Map<Item, Integer> map = new HashMap<>();
             while (rs.next()) {
@@ -89,6 +69,7 @@ public class H2BasketDao implements BasketDao {
                 stm.close();
             }
             ConnectionPool.returnConnection(connection);
+            log.debug(Arrays.toString(map.entrySet().toArray()));
             return map;
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -104,8 +85,8 @@ public class H2BasketDao implements BasketDao {
             ResultSet rs = stm.executeQuery();
             Map<Item, Integer> map;
             rs.next();
-            int basketId = rs.getInt("ID");
-            map = read(basketId);
+            UUID uuid = UUID.fromString(rs.getString("ID"));
+            map = read(uuid);
             if (stm != null) {
                 stm.close();
             }
@@ -117,31 +98,31 @@ public class H2BasketDao implements BasketDao {
     }
 
     @Override
-    public int getBasketIByUserId(int id) throws DaoException {
+    public UUID getBasketIdByUserId(int id) throws DaoException {
         try {
-            int basketId = 0;
+            UUID uuid = null;
             String sql = "SELECT ID FROM BASKET WHERE CLIENT_ID = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
             rs.next();
-            basketId = rs.getInt("ID");
+            uuid = (UUID) rs.getObject("ID");
             if (stm != null) {
                 stm.close();
             }
             ConnectionPool.returnConnection(connection);
-            return basketId;
+            return uuid;
         } catch (SQLException e) {
             throw new DaoException(e);
         }
     }
 
     @Override
-    public void addItem(int basketId, Item item, int quantity) throws DaoException {
+    public void addItem(UUID uuid, Item item, int quantity) throws DaoException {
         try {
             String sql = "INSERT INTO ITEM_BASKET(BASKET_ID,  ITEM_ID, QUANTITY) VALUES(?, ?, ?);";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, basketId);
+            stm.setObject(1, uuid);
             stm.setInt(2, item.getId());
             stm.setInt(3, quantity);
             stm.executeUpdate();
@@ -155,7 +136,7 @@ public class H2BasketDao implements BasketDao {
     }
 
     @Override
-    public void update(int basketId, int userId) throws DaoException {
+    public void update(UUID uuid, int userId) throws DaoException {
         try {
             String sql = "UPDATE BASKET SET CLIENT_ID =?, BASKET_DATE=? WHERE ID = ?;";
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -163,9 +144,9 @@ public class H2BasketDao implements BasketDao {
             java.util.Date utilDate = new java.util.Date();
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             stm.setDate(2, sqlDate);
-            stm.setInt(3, basketId);
+            stm.setObject(3, uuid);
             stm.executeUpdate();
-            log.debug("updating UserId in basket! UserId =  " + userId + "basketId = " + basketId);
+            log.debug("updating UserId in basket! UserId =  " + userId + "basketId = " + uuid);
             if (stm != null) {
                 stm.close();
             }
@@ -176,12 +157,11 @@ public class H2BasketDao implements BasketDao {
     }
 
     @Override
-    public void deleteItemBasket(int basketId, int itemId) throws DaoException {
+    public void deleteItemBasket(UUID uuid, int itemId) throws DaoException {
         try {
-
             String sql = "DELETE FROM ITEM_BASKET WHERE BASKET_ID = ? AND ITEM_ID = ?;";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, basketId);
+            stm.setObject(1, uuid);
             stm.setInt(2, itemId);
             stm.executeUpdate();
             if (stm != null) {
@@ -237,6 +217,28 @@ public class H2BasketDao implements BasketDao {
             }
         }
 
+    }
+
+    @Override
+    public int getUserIdByBasketId(UUID uuid) throws DaoException {
+        try {
+            int id = 0;
+            if (uuid !=  null) {
+                String sql = "SELECT CLIENT_ID FROM BASKET WHERE ID = ?";
+                PreparedStatement stm = connection.prepareStatement(sql);
+                stm.setObject(1, uuid);
+                ResultSet rs = stm.executeQuery();
+                rs.next();
+                id = rs.getInt("CLIENT_ID");
+                if (stm != null) {
+                    stm.close();
+                }
+                ConnectionPool.returnConnection(connection);
+            }
+            return id;
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        }
     }
 
     @Override

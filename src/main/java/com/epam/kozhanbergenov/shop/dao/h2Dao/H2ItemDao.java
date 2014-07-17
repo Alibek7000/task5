@@ -4,7 +4,6 @@ import com.epam.kozhanbergenov.shop.dao.ItemDao;
 import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Item;
-import com.epam.kozhanbergenov.shop.util.SqlEscape;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -30,7 +29,6 @@ public class H2ItemDao implements ItemDao {
         try {
             String name = item.getName();
             String description = item.getDescription();
-            description = SqlEscape.getClearString(description);
             double price = item.getPrice();
             int categoryId = item.getCategory();
             String sql = "INSERT INTO ITEM(NAME,  DESCRIPTION, QUANTITY, PRICE, CATEGORY_ID) " +
@@ -107,7 +105,6 @@ public class H2ItemDao implements ItemDao {
             log.debug("id = " + id);
             String name = item.getName();
             String description = item.getDescription();
-            description = SqlEscape.getClearString(description);
             int categoryId = item.getCategory();
             double price = item.getPrice();
             String sql;
@@ -286,7 +283,7 @@ public class H2ItemDao implements ItemDao {
     }
 
     @Override
-    public Map<Item, Integer> getAllByCategory(int categoryId,  int offset, int noOfRecords, boolean sortingByName, boolean sortingByPrice, boolean sortingUp) throws DaoException {
+    public Map<Item, Integer> getAllByCategory(int categoryId, int offset, int noOfRecords, boolean sortingByName, boolean sortingByPrice, boolean sortingUp) throws DaoException {
         try {
             String sql = "";
             String orderBy;
@@ -297,7 +294,7 @@ public class H2ItemDao implements ItemDao {
             if (sortingUp)
                 direction = "ASC";
             else direction = "DESC";
-                sql = "SELECT * FROM ITEM WHERE CATEGORY_ID = ? ORDER BY "+orderBy+" " + direction+" LIMIT " + offset + ", " + noOfRecords;
+            sql = "SELECT * FROM ITEM WHERE CATEGORY_ID = ? ORDER BY " + orderBy + " " + direction + " LIMIT " + offset + ", " + noOfRecords;
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, categoryId);
             ResultSet rs = stm.executeQuery();
@@ -329,12 +326,12 @@ public class H2ItemDao implements ItemDao {
             String orderBy;
             String direction;
             if (sortingByName)
-                    orderBy = "NAME";
-                else orderBy = "PRICE";
-                if (sortingUp)
-                    direction = "ASC";
-                else direction = "DESC";
-                sql = "SELECT * FROM ITEM WHERE CATEGORY_ID=? OR CATEGORY_ID IN (SELECT ID FROM CATEGORY WHERE PARENT_ID= ?) ORDER BY  " + orderBy + " " + direction + " LIMIT " + offset + ", " + noOfRecords;
+                orderBy = "NAME";
+            else orderBy = "PRICE";
+            if (sortingUp)
+                direction = "ASC";
+            else direction = "DESC";
+            sql = "SELECT * FROM ITEM WHERE CATEGORY_ID=? OR CATEGORY_ID IN (SELECT ID FROM CATEGORY WHERE PARENT_ID= ?) ORDER BY  " + orderBy + " " + direction + " LIMIT " + offset + ", " + noOfRecords;
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, categoryId);
             stm.setInt(2, categoryId);
@@ -363,6 +360,7 @@ public class H2ItemDao implements ItemDao {
             throw new DaoException(e);
         }
     }
+
     @Override
     public void returnConnection() {
         if (connection != null)

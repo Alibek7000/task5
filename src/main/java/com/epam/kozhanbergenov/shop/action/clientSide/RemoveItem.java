@@ -20,10 +20,6 @@ public class RemoveItem implements Action {
         log.debug("RemoveItem action was started");
         try {
             HttpSession httpSession = req.getSession();
-            User user = (User) httpSession.getAttribute("user");
-            if (user == null || user instanceof Administrator || ((Client) user).isBanned()) {
-                return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
-            }
             int id = new Integer(req.getParameter("id"));
             BasketItems basketItems = new BasketItems(req, resp);
 

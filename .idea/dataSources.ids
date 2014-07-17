@@ -322,12 +322,13 @@
       <column name="ID" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
     </table>
     <table name="BASKET" schema="PUBLIC" catalog="TEST" type="TABLE">
-      <column name="ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4" def="KE5FWFQgVkFMVUUgRk9SIFBVQkxJQy5TWVNURU1fU0VRVUVOQ0VfNzUwOTQ5OURfNkJFRV80NDE0X0EwNUFfQjhERUEyNTU0OUVCKQ==" autoIncrement="true"/>
+      <column name="ID" sqlType="UUID" precision="2147483647" scale="0" nullable="false" jdbcType="-2"/>
       <column name="CLIENT_ID" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="BASKET_DATE" sqlType="TIMESTAMP" precision="23" scale="10" nullable="true" jdbcType="93"/>
       <primary-key name="CONSTRAINT_7" columns="ID"/>
       <foreign-key name="CONSTRAINT_74" columns="CLIENT_ID" ref-table="USER" ref-schema="PUBLIC" ref-catalog="TEST" ref-columns="ID" update-rule="1" delete-rule="1" deferrability="2"/>
       <index name="unique_CLIENT_ID_INDEX_7" unique="true" columns="CLIENT_ID"/>
+      <index name="CONSTRAINT_74_INDEX_7" unique="false" columns="CLIENT_ID"/>
     </table>
     <table name="CATEGORY" schema="PUBLIC" catalog="TEST" type="TABLE">
       <column name="ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4" def="KE5FWFQgVkFMVUUgRk9SIFBVQkxJQy5TWVNURU1fU0VRVUVOQ0VfMkIzRUVCOThfRjEyN180MEIzXzlBOUJfOTE5NTU1OTE4NDYxKQ==" autoIncrement="true"/>
@@ -356,10 +357,11 @@
       <index name="CONSTRAINT_22_INDEX_3" unique="false" columns="CATEGORY_ID"/>
     </table>
     <table name="ITEM_BASKET" schema="PUBLIC" catalog="TEST" type="TABLE">
-      <column name="BASKET_ID" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="BASKET_ID" sqlType="UUID" precision="2147483647" scale="0" nullable="true" jdbcType="-2"/>
       <column name="ITEM_ID" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="QUANTITY" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <foreign-key name="CONSTRAINT_E" columns="ITEM_ID" ref-table="ITEM" ref-schema="PUBLIC" ref-catalog="TEST" ref-columns="ID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <index name="CONSTRAINT_E_INDEX_F" unique="false" columns="ITEM_ID"/>
     </table>
     <table name="ITEM_ORDER" schema="PUBLIC" catalog="TEST" type="TABLE">
       <column name="ORDER_ID" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>

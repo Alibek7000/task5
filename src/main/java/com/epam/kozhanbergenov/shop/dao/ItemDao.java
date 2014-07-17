@@ -3,7 +3,6 @@ package com.epam.kozhanbergenov.shop.dao;
 import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
 import com.epam.kozhanbergenov.shop.entity.Item;
 
-
 import java.util.Map;
 
 public interface ItemDao {
