@@ -7,7 +7,7 @@ import com.epam.kozhanbergenov.shop.entity.User;
 import java.util.List;
 
 public interface UserDao {
-    void create(Client client) throws DaoException;
+    void create(User user) throws DaoException;
 
     User read(int id) throws DaoException;
 

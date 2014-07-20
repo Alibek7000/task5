@@ -22,26 +22,37 @@ public class H2UserDao implements UserDao {
     }
 
     @Override
-    public void create(Client client) throws DaoException {
+    public void create(User user) throws DaoException {
         try {
-            String login = client.getLogin();
-            String password = client.getPassword();
+            String login = user.getLogin();
+            String password = user.getPassword();
             password = PasswordHashing.getHashValue(password);
-            String name = client.getName();
-            String surname = client.getSurname();
-            String address = client.getAddress();
-            String phoneNumber = client.getPhoneNumber();
-            boolean ban = client.isBanned();
-            String sql = "INSERT INTO USER(LOGIN, PASSWORD, NAME,  SURNAME, ADDRESS, PHONENUMBER, ROLE, BAN) " +
-                    "VALUES(?, ?, ?, ?, ?, ?, 'Client', ?)";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, login);
-            stm.setString(2, password);
-            stm.setString(3, name);
-            stm.setString(4, surname);
-            stm.setString(5, address);
-            stm.setString(6, phoneNumber);
-            stm.setBoolean(7, ban);
+            PreparedStatement stm = null;
+            String sql;
+            if (user instanceof Client) {
+                String name = ((Client) user).getName();
+                String surname = ((Client) user).getSurname();
+                String address = ((Client) user).getAddress();
+                String phoneNumber = ((Client) user).getPhoneNumber();
+                boolean ban = ((Client) user).isBanned();
+                sql = "INSERT INTO USER(LOGIN, PASSWORD, NAME,  SURNAME, ADDRESS, PHONENUMBER, ROLE, BAN) " +
+                        "VALUES(?, ?, ?, ?, ?, ?, 'Client', ?)";
+                stm = connection.prepareStatement(sql);
+                stm.setString(1, login);
+                stm.setString(2, password);
+                stm.setString(3, name);
+                stm.setString(4, surname);
+                stm.setString(5, address);
+                stm.setString(6, phoneNumber);
+                stm.setBoolean(7, ban);
+            }
+            else {
+                sql = "INSERT INTO USER(LOGIN, PASSWORD, NAME,  SURNAME, ADDRESS, PHONENUMBER, ROLE, BAN) " +
+                        "VALUES(?, ?, NULL, NULL, NULL, NULL, 'Administrator', NULL)";
+                stm = connection.prepareStatement(sql);
+                stm.setString(1, login);
+                stm.setString(2, password);
+            }
             stm.executeUpdate();
             if (stm != null)
                 stm.close();

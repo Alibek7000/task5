@@ -3,16 +3,40 @@ package com.epam.kozhanbergenov.shop.action;
 import com.epam.kozhanbergenov.shop.dao.UserDao;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
+import com.epam.kozhanbergenov.shop.entity.Administrator;
 import com.epam.kozhanbergenov.shop.entity.Client;
+import com.epam.kozhanbergenov.shop.util.ConfigurationManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Registration implements Action {
 
     private static final Logger log = Logger.getLogger(Registration.class);
+    private static final ConfigurationManager configurationManager = new ConfigurationManager("shopConfiguration.properties");
+    private static final CharSequence SECRET_WORD = configurationManager.getValue("secretWordForAdminsRegister");
+    String sentencePartSeparatorRegex = configurationManager.getValue("phoneNumberRegex");
+
+    private String em1 = "*";
+    private String em2 = "*";
+    private String em3 = "*";
+    private String em4 = "*";
+    private String em5 = "*";
+    private String em6 = "*";
+    private String name;
+    private String surname;
+    private String address;
+    private String phoneNumber;
+
+    public String getReturnPage() {
+        return "/WEB-INF/jsp/registration.jsp?em1=" + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" +
+                em4 + "&em5=" + em5 + "&em6=" + em6 + "&name=" + name + "&surname=" + surname + "&address=" +
+                address + "&phoneNumber=" + phoneNumber;
+    }
 
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -23,17 +47,12 @@ public class Registration implements Action {
             log.debug("Login is " + login);
             String password = req.getParameter("password");
             log.debug("Password is " + password);
-            String name = req.getParameter("name");
-            String surname = req.getParameter("surname");
-            String address = req.getParameter("address");
-            String phoneNumber = req.getParameter("phoneNumber");
+            name = req.getParameter("name");
+            surname = req.getParameter("surname");
+            address = req.getParameter("address");
+            phoneNumber = req.getParameter("phoneNumber");
 
-            String em1 = "*";
-            String em2 = "*";
-            String em3 = "*";
-            String em4 = "*";
-            String em5 = "*";
-            String em6 = "*";
+
             UserDao userDao = new H2UserDao(ConnectionPool.getConnection());
 
             if (login == null && password == null && name == null && surname == null && address == null) {
@@ -46,31 +65,82 @@ public class Registration implements Action {
             if (surname.isEmpty()) em4 = "error.emptyField";
             if (address.isEmpty()) em5 = "error.emptyField";
             if (phoneNumber.isEmpty()) em6 = "error.emptyField";
-            String returnPage = "/WEB-INF/jsp/registration.jsp?em1=" + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" +
-                    em4 + "&em5=" + em5 + "&em6=" + em6 + "&name="+name+ "&surname="+surname+ "&address="+
-                    address+"&phoneNumber="+phoneNumber;
+
+
 
             if (login.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty() || address.isEmpty()) {
                 userDao.returnConnection();
-                return new ActionResult(returnPage);
+                return new ActionResult(getReturnPage());
+            }
+
+            if (login.length() < 6) {
+                em1 = "error.shortLogin";
+                em3 = "*";
+                em4 = "*";
+                em5 = "*";
+                return new ActionResult(getReturnPage());
             }
 
             if (password.length() < 6) {
+                em1 = "*";
                 em2 = "error.shortPassword";
-                return new ActionResult(returnPage);
+                em3 = "*";
+                em4 = "*";
+                em5 = "*";
+                return new ActionResult(getReturnPage());
             }
-            if (userDao.checkLogin(login)) {
-                Client client = new Client(login, password, name, surname, address, phoneNumber);
-                userDao.create(client);
-                userDao.returnConnection();
-                HttpSession httpSession = req.getSession();
-                httpSession.setAttribute("user", client);
-                return new ActionResult("controller?action=welcome", true);
+
+            Pattern p = Pattern.compile(sentencePartSeparatorRegex);
+            Matcher matcher = p.matcher(phoneNumber);
+            if (!matcher.matches()) {
+                em1 = "*";
+                em2 = "*";
+                em3 = "*";
+                em4 = "*";
+                em5 = "*";
+                em6 = "error.phoneNumber";
+                return new ActionResult(getReturnPage());
+            }
+
+
+            if (!login.contains(SECRET_WORD)) {
+                if (userDao.checkLogin(login)) {
+                    Client client = new Client(login, password, name, surname, address, phoneNumber);
+                    userDao.create(client);
+                    userDao.returnConnection();
+                    HttpSession httpSession = req.getSession();
+                    httpSession.setAttribute("user", client);
+                } else {
+                    userDao.returnConnection();
+                    em1 = "error.usedLogin";
+                    em2 = "*";
+                    em3 = "*";
+                    em4 = "*";
+                    em5 = "*";
+                    return new ActionResult(getReturnPage());
+                }
             } else {
-                userDao.returnConnection();
-                em1 = "error.usedLogin";
-                return new ActionResult(returnPage);
+                log.debug(login);
+                login = login.replaceAll(SECRET_WORD.toString(), "");
+                if (userDao.checkLogin(login)) {
+                    log.debug(login);
+                    Administrator administrator = new Administrator(login, password);
+                    userDao.create(administrator);
+                    userDao.returnConnection();
+                    HttpSession httpSession = req.getSession();
+                    httpSession.setAttribute("user", administrator);
+                } else {
+                    userDao.returnConnection();
+                    em1 = "error.usedLogin";
+                    em2 = "*";
+                    em3 = "*";
+                    em4 = "*";
+                    em5 = "*";
+                    return new ActionResult(getReturnPage());
+                }
             }
+            return new ActionResult("controller?action=welcome", true);
+
         } catch (Exception e) {
             log.error(e);
             return new ActionResult("WEB-INF/jsp/errorPage.jsp");
