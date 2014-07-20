@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7ecd372-3c40-47ca-9839-1e13fd22f8e8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Registration.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Registration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/shopConfiguration.properties" afterPath="$PROJECT_DIR$/src/main/resources/shopConfiguration.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/text.properties" afterPath="$PROJECT_DIR$/src/main/resources/text.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/text_ru.properties" afterPath="$PROJECT_DIR$/src/main/resources/text_ru.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/DaoFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/H2DaoFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/AddItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/database/ConnectionPool.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/database/ConnectionPool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/DaoFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/DaoFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2OrderDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2OrderDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="shop.iws" />
@@ -79,7 +77,38 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/database/ConnectionPool.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1071">
-              <caret line="36" column="5" selection-start-line="19" selection-start-column="29" selection-end-line="36" selection-end-column="5" />
+              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="H2DaoFactory.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/H2DaoFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7747989" vertical-offset="408" max-vertical-offset="884">
+              <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+              <folding>
+                <element signature="e#974#975#0" expanded="true" />
+                <element signature="e#1004#1005#0" expanded="true" />
+                <element signature="e#1052#1053#0" expanded="true" />
+                <element signature="e#1082#1083#0" expanded="true" />
+                <element signature="e#1132#1133#0" expanded="true" />
+                <element signature="e#1163#1164#0" expanded="true" />
+                <element signature="e#1219#1220#0" expanded="true" />
+                <element signature="e#1253#1254#0" expanded="true" />
+                <element signature="e#1305#1306#0" expanded="true" />
+                <element signature="e#1337#1338#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DaoFactory.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/DaoFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="476">
+              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -112,20 +141,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registration.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.076923" vertical-offset="415" max-vertical-offset="1156">
-              <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="H2BasketDao.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="H2BasketDao.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2BasketDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.08913649" vertical-offset="3738" max-vertical-offset="4097">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3738" max-vertical-offset="4097">
               <caret line="232" column="34" selection-start-line="232" selection-start-column="34" selection-end-line="232" selection-end-column="34" />
               <folding>
                 <marker date="1405584882516" expanded="true" signature="1146:1208" placeholder="INSERT INTO ..." />
@@ -138,6 +157,16 @@
                 <marker date="1405584882516" expanded="true" signature="6493:6556" placeholder="DELETE FROM ..." />
                 <marker date="1405584882516" expanded="true" signature="8052:8093" placeholder="SELECT CLIEN..BASKET..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfigurationManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/util/ConfigurationManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="442">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -172,26 +201,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PasswordHashing.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/util/PasswordHashing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="544">
-              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shopConfiguration.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/shopConfiguration.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-              <caret line="3" column="78" selection-start-line="3" selection-start-column="78" selection-end-line="3" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -205,10 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/text_ru.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/EditCategory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/adminSide/RemoveItemFromBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/BuyItemButton.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/Pay.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/clientSide/ShowOrder.java" />
@@ -256,6 +261,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/text.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/action/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/database/ConnectionPool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/AbstractDaoFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/DaoFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/H2DaoFactory.java" />
       </list>
     </option>
   </component>
@@ -1404,7 +1413,7 @@
       <workItem from="1405577006241" duration="8583000" />
       <workItem from="1405585756315" duration="132000" />
       <workItem from="1405586107172" duration="3221000" />
-      <workItem from="1405846020237" duration="6107000" />
+      <workItem from="1405846020237" duration="7640000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1401272989808</created>
@@ -1518,11 +1527,15 @@
       <created>1405589316274</created>
       <updated>1405589316274</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added admins registration&#10;Regex onto phone number&#10;">
+      <created>1405854100798</created>
+      <updated>1405854100798</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="656923000" />
+    <option name="totallyTimeSpent" value="658456000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1559,7 +1572,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3149236" sideWeight="0.77867526" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26494345" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40305522" sideWeight="0.17868853" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51668584" sideWeight="0.17851374" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36192715" sideWeight="0.49918032" order="14" side_tool="false" content_ui="tabs" />
@@ -1570,7 +1583,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1442623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29483038" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5178366" sideWeight="0.8213115" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51668584" sideWeight="0.82067853" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1825525" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1639,7 +1652,8 @@
     <MESSAGE value="registratino page reworked" />
     <MESSAGE value="registration page reworked" />
     <MESSAGE value="basket reworked" />
-    <option name="LAST_COMMIT_MESSAGE" value="basket reworked" />
+    <MESSAGE value="Added admins registration&#10;Regex onto phone number&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added admins registration&#10;Regex onto phone number&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1654,20 +1668,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editCategory.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65384614" vertical-offset="306" max-vertical-offset="969">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editItem.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9230769" vertical-offset="789" max-vertical-offset="1224">
-          <caret line="45" column="56" selection-start-line="45" selection-start-column="56" selection-end-line="45" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errorPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="544">
@@ -1957,14 +1957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/util/ConfigurationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/util/PasswordHashing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="544">
@@ -2007,14 +1999,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/database/ConnectionPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1071">
-          <caret line="36" column="5" selection-start-line="19" selection-start-column="29" selection-end-line="36" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -2076,7 +2060,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/h2Dao/H2BasketDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.08913649" vertical-offset="3738" max-vertical-offset="4097">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3738" max-vertical-offset="4097">
           <caret line="232" column="34" selection-start-line="232" selection-start-column="34" selection-end-line="232" selection-end-column="34" />
           <folding>
             <marker date="1405584882516" expanded="true" signature="1146:1208" placeholder="INSERT INTO ..." />
@@ -2088,6 +2072,49 @@
             <marker date="1405584882516" expanded="true" signature="5769:5828" placeholder="DELETE FROM ..." />
             <marker date="1405584882516" expanded="true" signature="6493:6556" placeholder="DELETE FROM ..." />
             <marker date="1405584882516" expanded="true" signature="8052:8093" placeholder="SELECT CLIEN..BASKET..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/util/ConfigurationManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/database/ConnectionPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1071">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/DaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="476">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kozhanbergenov/shop/dao/H2DaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7747989" vertical-offset="408" max-vertical-offset="884">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+          <folding>
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+            <element signature="e#1052#1053#0" expanded="true" />
+            <element signature="e#1082#1083#0" expanded="true" />
+            <element signature="e#1132#1133#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1219#1220#0" expanded="true" />
+            <element signature="e#1253#1254#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
           </folding>
         </state>
       </provider>

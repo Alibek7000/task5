@@ -3,7 +3,7 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.CategoryDao;
-import com.epam.kozhanbergenov.shop.dao.DaoFactory;
+import com.epam.kozhanbergenov.shop.dao.H2DaoFactory;
 import com.epam.kozhanbergenov.shop.dao.ItemDao;
 import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
@@ -46,7 +46,7 @@ public class AddItem implements Action {
                 httpSession.setAttribute("categories", categories);
                 return new ActionResult("/WEB-INF/jsp/addItem.jsp");
             }
-            ItemDao itemDao = DaoFactory.getItemDao();
+            ItemDao itemDao = H2DaoFactory.getItemDao();
             String quantityString = req.getParameter("quantity");
             String priceString = req.getParameter("price");
             int categoryId = 0;

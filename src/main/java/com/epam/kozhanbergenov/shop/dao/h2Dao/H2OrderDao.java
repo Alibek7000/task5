@@ -1,6 +1,6 @@
 package com.epam.kozhanbergenov.shop.dao.h2Dao;
 
-import com.epam.kozhanbergenov.shop.dao.DaoFactory;
+import com.epam.kozhanbergenov.shop.dao.H2DaoFactory;
 import com.epam.kozhanbergenov.shop.dao.ItemDao;
 import com.epam.kozhanbergenov.shop.dao.OrderDao;
 import com.epam.kozhanbergenov.shop.dao.UserDao;
@@ -113,7 +113,7 @@ public class H2OrderDao implements OrderDao {
             stm2.setInt(1, order.getId());
             ResultSet rs2 = stm2.executeQuery();
             Map<Item, Integer> items = new HashMap<>();
-            ItemDao itemDao = DaoFactory.getItemDao();
+            ItemDao itemDao = H2DaoFactory.getItemDao();
             while (rs2.next()) {
                 int itemId = rs2.getInt("item_id");
                 int quantity = rs2.getInt("quantity");
