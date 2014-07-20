@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.ItemDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDao;
+import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.Item;
@@ -36,7 +36,7 @@ public class EditItem implements Action {
             if (name == null && description == null) {
                 return new ActionResult("/WEB-INF/jsp/editItem.jsp");
             }
-            ItemDao itemDao = new H2ItemDao(ConnectionPool.getConnection());
+            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
             String quantityString = req.getParameter("quantity");
             String priceString = req.getParameter("price");
             Item editItem = (Item) httpSession.getAttribute("editItem");
@@ -93,7 +93,7 @@ public class EditItem implements Action {
             item.setId(id);
             item.setCategory(categoryId);
             log.debug("categoryId " + categoryId);
-            itemDao.update(item, quantity);
+            itemDAO.update(item, quantity);
             Part filePart = null;
             try {
                 if (req.getPart("file").getSize() > 0) {
@@ -135,7 +135,7 @@ public class EditItem implements Action {
                     log.error(e);
                 }
             }
-            itemDao.returnConnection();
+            itemDAO.returnConnection();
             return new ActionResult("/index.jsp", true);
         } catch (Exception e) {
             log.error(e);

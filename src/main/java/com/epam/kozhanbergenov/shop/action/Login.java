@@ -1,8 +1,9 @@
 package com.epam.kozhanbergenov.shop.action;
 
-import com.epam.kozhanbergenov.shop.dao.UserDao;
-import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDao;
+import com.epam.kozhanbergenov.shop.DAO.DAOFactory;
+import com.epam.kozhanbergenov.shop.DAO.UserDAO;
+import com.epam.kozhanbergenov.shop.DAO.exception.DAOException;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2UserDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.User;
 import com.epam.kozhanbergenov.shop.util.PasswordHashing;
@@ -29,15 +30,15 @@ public class Login implements Action {
             return new ActionResult("/WEB-INF/jsp/loginPage.jsp");
         }
         password = PasswordHashing.getHashValue(password);
-        UserDao userDao = new H2UserDao(ConnectionPool.getConnection());
+        UserDAO userDAO = DAOFactory.getDAOFactory(DAOFactory.H2).getUserDao();
         List<User> users = null;
         try {
-            users = userDao.getAll();
-        } catch (DaoException e) {
+            users = userDAO.getAll();
+        } catch (DAOException e) {
             log.error(e);
         }
 
-        userDao.returnConnection();
+        userDAO.returnConnection();
         String login2;
         String password2;
 

@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.clientSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.ItemDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDao;
+import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Item;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -23,11 +23,11 @@ public class BuyItemButton implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
 
-            ItemDao itemDao = new H2ItemDao(ConnectionPool.getConnection());
+            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
             int id = new Integer(req.getParameter("id"));
             String requestedQuantityString = req.getParameter("quantity");
-            Item item = itemDao.read(id);
-            itemDao.returnConnection();
+            Item item = itemDAO.read(id);
+            itemDAO.returnConnection();
             if (requestedQuantityString.isEmpty()) {
                 return new ActionResult("controller?action=aboutItem&id=" + item.getId()
                         + "&errorMessage=error.integer");

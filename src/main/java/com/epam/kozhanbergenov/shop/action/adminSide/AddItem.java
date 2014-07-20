@@ -2,10 +2,10 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.CategoryDao;
-import com.epam.kozhanbergenov.shop.dao.H2DaoFactory;
-import com.epam.kozhanbergenov.shop.dao.ItemDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
+import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAOFactory;
+import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import com.epam.kozhanbergenov.shop.entity.Client;
@@ -38,15 +38,15 @@ public class AddItem implements Action {
                 return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             List<Category> categories = null;
-            CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
-            categories = categoryDao.getAll();
+            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
+            categories = categoryDAO.getAll();
             String name = req.getParameter("name");
             String description = req.getParameter("description");
             if (name == null && description == null) {
                 httpSession.setAttribute("categories", categories);
                 return new ActionResult("/WEB-INF/jsp/addItem.jsp");
             }
-            ItemDao itemDao = H2DaoFactory.getItemDao();
+            ItemDAO itemDAO = H2DAOFactory.getItemDao();
             String quantityString = req.getParameter("quantity");
             String priceString = req.getParameter("price");
             int categoryId = 0;
@@ -99,10 +99,10 @@ public class AddItem implements Action {
             }
 
             Map<Item, Integer> items = null;
-            items = itemDao.getAll(0, 0, false, true, true);
+            items = itemDAO.getAll(0, 0, false, true, true);
             for (Item item : items.keySet()) {
                 if (item.getName().equals(name)) {
-                    itemDao.returnConnection();
+                    itemDAO.returnConnection();
                     em1 = "error.usedName";
                     return new ActionResult("/WEB-INF/jsp/addItem.jsp?em1="
                             + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" + em4);
@@ -113,7 +113,7 @@ public class AddItem implements Action {
             Item item = new Item(name, description, price);
             item.setCategory(categoryId);
             int id = 0;
-            id = itemDao.create(item, quantity);
+            id = itemDAO.create(item, quantity);
             Part filePart = null;
             try {
                 if (req.getPart("file").getSize() > 0) {
@@ -156,7 +156,7 @@ public class AddItem implements Action {
                     log.error(e);
                 }
             }
-            itemDao.returnConnection();
+            itemDAO.returnConnection();
             return new ActionResult("/index.jsp", true);
         } catch (Exception e) {
             log.error(e);

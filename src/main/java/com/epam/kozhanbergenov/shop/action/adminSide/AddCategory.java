@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.CategoryDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
+import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import com.epam.kozhanbergenov.shop.entity.Client;
@@ -26,9 +26,9 @@ public class AddCategory implements Action {
             if (user == null || user instanceof Client) {
                 return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
             }
-            CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
+            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
             List<Category> categories = null;
-            categories = categoryDao.getAll();
+            categories = categoryDAO.getAll();
             String name = req.getParameter("name");
             if (name == null) {
                 httpSession.setAttribute("categories", categories);
@@ -45,14 +45,14 @@ public class AddCategory implements Action {
                 return new ActionResult("/WEB-INF/jsp/addCategory.jsp?errorMessage=error.incorrectField");
             for (Category category : categories) {
                 if (category.getName().equals(name)) {
-                    categoryDao.returnConnection();
+                    categoryDAO.returnConnection();
                     return new ActionResult("/WEB-INF/jsp/addCategory.jsp?errorMessage=" +
                             "error.usedName");
                 }
             }
             Category category = new Category(name, parentId, description);
-            categoryDao.create(category);
-            categoryDao.returnConnection();
+            categoryDAO.create(category);
+            categoryDAO.returnConnection();
             return new ActionResult("controller?action=showCategories", true);
         } catch (Exception e) {
             log.error(e);

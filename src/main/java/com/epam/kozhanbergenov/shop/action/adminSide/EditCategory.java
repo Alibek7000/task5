@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.CategoryDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
+import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import com.epam.kozhanbergenov.shop.entity.Client;
@@ -25,7 +25,7 @@ public class EditCategory implements Action {
             if (user == null || user instanceof Client) {
                 return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
-            CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
+            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
             String name = "";
             String description = "";
             Category editCategory = null;
@@ -49,8 +49,8 @@ public class EditCategory implements Action {
             log.debug("parent ID = " + parentId);
             Category category = new Category(name, parentId, description);
             category.setId(id);
-            categoryDao.update(category);
-            categoryDao.returnConnection();
+            categoryDAO.update(category);
+            categoryDAO.returnConnection();
             return new ActionResult("controller?action=showCategories", true);
         } catch (Exception e) {
             log.error(e);

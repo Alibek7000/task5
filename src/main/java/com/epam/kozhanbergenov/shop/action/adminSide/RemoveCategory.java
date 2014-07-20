@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.CategoryDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
+import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -26,9 +26,9 @@ public class RemoveCategory implements Action {
                 return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             int id = new Integer(req.getParameter("id"));
-            CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
-            categoryDao.delete(categoryDao.read(id));
-            categoryDao.returnConnection();
+            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
+            categoryDAO.delete(categoryDAO.read(id));
+            categoryDAO.returnConnection();
             return new ActionResult("controller?action=showCategories", true);
         } catch (Exception e) {
             log.error(e);

@@ -1,7 +1,7 @@
 package com.epam.kozhanbergenov.shop.action;
 
-import com.epam.kozhanbergenov.shop.dao.UserDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDao;
+import com.epam.kozhanbergenov.shop.DAO.UserDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2UserDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Administrator;
 import com.epam.kozhanbergenov.shop.entity.Client;
@@ -53,7 +53,7 @@ public class Registration implements Action {
             phoneNumber = req.getParameter("phoneNumber");
 
 
-            UserDao userDao = new H2UserDao(ConnectionPool.getConnection());
+            UserDAO userDAO = new H2UserDAO(ConnectionPool.getConnection());
 
             if (login == null && password == null && name == null && surname == null && address == null) {
                 return new ActionResult("/WEB-INF/jsp/registration.jsp?em1=" + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" +
@@ -69,7 +69,7 @@ public class Registration implements Action {
 
 
             if (login.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty() || address.isEmpty()) {
-                userDao.returnConnection();
+                userDAO.returnConnection();
                 return new ActionResult(getReturnPage());
             }
 
@@ -104,14 +104,14 @@ public class Registration implements Action {
 
 
             if (!login.contains(SECRET_WORD)) {
-                if (userDao.checkLogin(login)) {
+                if (userDAO.checkLogin(login)) {
                     Client client = new Client(login, password, name, surname, address, phoneNumber);
-                    userDao.create(client);
-                    userDao.returnConnection();
+                    userDAO.create(client);
+                    userDAO.returnConnection();
                     HttpSession httpSession = req.getSession();
                     httpSession.setAttribute("user", client);
                 } else {
-                    userDao.returnConnection();
+                    userDAO.returnConnection();
                     em1 = "error.usedLogin";
                     em2 = "*";
                     em3 = "*";
@@ -122,15 +122,15 @@ public class Registration implements Action {
             } else {
                 log.debug(login);
                 login = login.replaceAll(SECRET_WORD.toString(), "");
-                if (userDao.checkLogin(login)) {
+                if (userDAO.checkLogin(login)) {
                     log.debug(login);
                     Administrator administrator = new Administrator(login, password);
-                    userDao.create(administrator);
-                    userDao.returnConnection();
+                    userDAO.create(administrator);
+                    userDAO.returnConnection();
                     HttpSession httpSession = req.getSession();
                     httpSession.setAttribute("user", administrator);
                 } else {
-                    userDao.returnConnection();
+                    userDAO.returnConnection();
                     em1 = "error.usedLogin";
                     em2 = "*";
                     em3 = "*";

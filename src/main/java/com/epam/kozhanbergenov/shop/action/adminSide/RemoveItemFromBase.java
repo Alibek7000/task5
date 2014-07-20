@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.ItemDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDao;
+import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -27,15 +27,15 @@ public class RemoveItemFromBase implements Action {
                 return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             int id = new Integer(req.getParameter("id"));
-            ItemDao itemDao = new H2ItemDao(ConnectionPool.getConnection());
-            itemDao.delete(itemDao.read(id));
+            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
+            itemDAO.delete(itemDAO.read(id));
             File file = new File(req.getSession().getServletContext().getRealPath("/") + "/images/items/" + id + ".png");
             if (file.delete()) {
                 log.debug(file.getName() + " is deleted!");
             } else {
                 log.debug("Picture delete operation is failed.");
             }
-            itemDao.returnConnection();
+            itemDAO.returnConnection();
             return new ActionResult("/index.jsp", true);
         } catch (Exception e) {
             log.error(e);

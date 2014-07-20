@@ -1,10 +1,10 @@
 package com.epam.kozhanbergenov.shop.action.adminSide;
 
+import com.epam.kozhanbergenov.shop.DAO.exception.DAOException;
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.BasketDao;
-import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2BasketDao;
+import com.epam.kozhanbergenov.shop.DAO.BasketDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2BasketDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.util.ConfigurationManager;
 import org.apache.log4j.Logger;
@@ -20,10 +20,10 @@ public class DeleteOldBaskets implements Action {
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         log.debug("DeleteOldBaskets action was started");
-        BasketDao basketDao = new H2BasketDao(ConnectionPool.getConnection());
+        BasketDAO basketDAO = new H2BasketDAO(ConnectionPool.getConnection());
         try {
-            basketDao.deleteOld(BASKET_SAVE_DAYS);
-        } catch (DaoException e) {
+            basketDAO.deleteOld(BASKET_SAVE_DAYS);
+        } catch (DAOException e) {
             log.error(e);
         }
         return new ActionResult("controller?action=showAdminPanel&message=oldBasketsRemoved", true);

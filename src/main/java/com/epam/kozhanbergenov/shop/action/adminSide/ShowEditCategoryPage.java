@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.CategoryDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
+import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import com.epam.kozhanbergenov.shop.entity.Client;
@@ -28,11 +28,11 @@ public class ShowEditCategoryPage implements Action {
             }
             int id = new Integer(req.getParameter("id"));
             Category editCategory = null;
-            CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
-            editCategory = categoryDao.read(id);
+            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
+            editCategory = categoryDAO.read(id);
             log.error(editCategory);
             httpSession.setAttribute("editCategory", editCategory);
-            categoryDao.returnConnection();
+            categoryDAO.returnConnection();
             return new ActionResult("controller?action=editCategory", true);
         } catch (Exception e) {
             log.error(e);

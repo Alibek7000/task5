@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.OrderDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2OrderDao;
+import com.epam.kozhanbergenov.shop.DAO.OrderDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2OrderDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.Order;
@@ -30,16 +30,16 @@ public class SendingOrder implements Action {
             int id = new Integer(req.getParameter("id"));
             boolean value = Boolean.parseBoolean(req.getParameter("value"));
 
-            OrderDao orderDao = new H2OrderDao(ConnectionPool.getConnection());
+            OrderDAO orderDAO = new H2OrderDAO(ConnectionPool.getConnection());
 
             Order order = null;
 
-            order = orderDao.read(id);
+            order = orderDAO.read(id);
 
             order.setSent(value);
-            orderDao.setSent(order, value);
+            orderDAO.setSent(order, value);
 
-            orderDao.returnConnection();
+            orderDAO.returnConnection();
             log.debug("is sent " + order.isSent());
             return new ActionResult("controller?action=showOrders", true);
         } catch (Exception e) {

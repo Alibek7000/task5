@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.UserDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDao;
+import com.epam.kozhanbergenov.shop.DAO.UserDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2UserDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -29,13 +29,13 @@ public class BaningClient implements Action {
             int id = new Integer(req.getParameter("id"));
             boolean value = Boolean.parseBoolean(req.getParameter("value"));
 
-            UserDao userDao = new H2UserDao(ConnectionPool.getConnection());
+            UserDAO userDAO = new H2UserDAO(ConnectionPool.getConnection());
 
             User client = null;
-            client = userDao.read(id);
+            client = userDAO.read(id);
             ((Client) client).setBanned(value);
-            userDao.update(client);
-            userDao.returnConnection();
+            userDAO.update(client);
+            userDAO.returnConnection();
             log.debug("isBanned " + ((Client) client).isBanned());
             return new ActionResult("controller?action=showUsers", true);
         } catch (Exception e) {

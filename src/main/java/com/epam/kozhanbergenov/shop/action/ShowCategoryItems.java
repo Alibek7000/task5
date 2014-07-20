@@ -1,9 +1,9 @@
 package com.epam.kozhanbergenov.shop.action;
 
-import com.epam.kozhanbergenov.shop.dao.CategoryDao;
-import com.epam.kozhanbergenov.shop.dao.ItemDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDao;
+import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
+import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Item;
 import com.epam.kozhanbergenov.shop.util.ConfigurationManager;
@@ -27,7 +27,7 @@ public class ShowCategoryItems implements Action {
             int parentId = new Integer(req.getParameter("parentId"));
             log.debug("categoryId = " + categoryId);
             log.debug("ParentId = " + parentId);
-            ItemDao itemDao = new H2ItemDao(ConnectionPool.getConnection());
+            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
             Map<Item, Integer> categoryItems = null;
             boolean sortingUp = false;
             boolean sortingByName = false;
@@ -42,23 +42,23 @@ public class ShowCategoryItems implements Action {
             if (req.getParameter("page") != null)
                 page = Integer.parseInt(req.getParameter("page"));
 
-            int noOfRecords = itemDao.getNoOfRecords(categoryId);
+            int noOfRecords = itemDAO.getNoOfRecords(categoryId);
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / RECORDS_PER_PAGE);
             req.setAttribute("noOfPages", noOfPages);
             req.setAttribute("currentPage", page);
 
             if (parentId != 0)
-                categoryItems = itemDao.getAllByCategory(categoryId, (page - 1) * RECORDS_PER_PAGE, RECORDS_PER_PAGE, sortingByName, sortingByPrice, sortingUp);
+                categoryItems = itemDAO.getAllByCategory(categoryId, (page - 1) * RECORDS_PER_PAGE, RECORDS_PER_PAGE, sortingByName, sortingByPrice, sortingUp);
             else
-                categoryItems = itemDao.getAllByParentCategory(categoryId, (page - 1) * RECORDS_PER_PAGE, RECORDS_PER_PAGE, sortingByName, sortingByPrice, sortingUp);
-            itemDao.returnConnection();
-            CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
+                categoryItems = itemDAO.getAllByParentCategory(categoryId, (page - 1) * RECORDS_PER_PAGE, RECORDS_PER_PAGE, sortingByName, sortingByPrice, sortingUp);
+            itemDAO.returnConnection();
+            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
 
             String categoryName = null;
             String categoryRuName = null;
 
-            categoryName = categoryDao.read(categoryId).getName();
-            categoryRuName = categoryDao.read(categoryId).getRuName();
+            categoryName = categoryDAO.read(categoryId).getName();
+            categoryRuName = categoryDAO.read(categoryId).getRuName();
 
             HttpSession httpSession = req.getSession();
             if (categoryItems != null) {

@@ -1,13 +1,13 @@
 package com.epam.kozhanbergenov.shop.action.clientSide;
 
+import com.epam.kozhanbergenov.shop.DAO.exception.DAOException;
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.BasketItems;
-import com.epam.kozhanbergenov.shop.dao.ItemDao;
-import com.epam.kozhanbergenov.shop.dao.OrderDao;
-import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2OrderDao;
+import com.epam.kozhanbergenov.shop.DAO.BasketItems;
+import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
+import com.epam.kozhanbergenov.shop.DAO.OrderDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2OrderDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.*;
 import org.apache.log4j.Logger;
@@ -31,12 +31,12 @@ public class Pay implements Action {
                 return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             boolean enough = true;
-            ItemDao itemDao = new H2ItemDao(ConnectionPool.getConnection());
+            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
             Map<Item, Integer> items = (Map<Item, Integer>) httpSession.getAttribute("items");
-            if (!itemDao.enoughQuantity(items)) {
+            if (!itemDAO.enoughQuantity(items)) {
                 enough = false;
             }
-            itemDao.returnConnection();
+            itemDAO.returnConnection();
             if (!enough) {
                 return new ActionResult("controller?action=showBasket&errorMessage=error.outOfStock");
             } else {
@@ -45,14 +45,14 @@ public class Pay implements Action {
                 order.setItemIntegerMap(items);
                 log.debug(order.getClient());
                 int orderId = 0;
-                OrderDao orderDao = new H2OrderDao(ConnectionPool.getConnection());
+                OrderDAO orderDAO = new H2OrderDAO(ConnectionPool.getConnection());
                 try {
-                    orderId = orderDao.create(order);
-                    if (orderDao.read(orderId).getId() != 0) {
+                    orderId = orderDAO.create(order);
+                    if (orderDAO.read(orderId).getId() != 0) {
                         new BasketItems(req, resp).releaseBasket();
                     }
                     return new ActionResult("controller?action=showOrder&message=orderAccepted&id=" + orderId, true);
-                } catch (DaoException e) {
+                } catch (DAOException e) {
                     log.error(e);
                 }
                 return new ActionResult("controller?action=showError&errorMessage=error.orderNotAccepted", true);

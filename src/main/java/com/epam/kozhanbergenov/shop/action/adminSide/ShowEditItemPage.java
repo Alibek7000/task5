@@ -2,8 +2,8 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.dao.ItemDao;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDao;
+import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.Item;
@@ -29,13 +29,13 @@ public class ShowEditItemPage implements Action {
             int id = new Integer(req.getParameter("id"));
             Item editItem = null;
             int editItemQuantity = 0;
-            ItemDao itemDao = new H2ItemDao(ConnectionPool.getConnection());
-            editItem = itemDao.read(id);
-            editItemQuantity = itemDao.getQuantityById(id);
+            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
+            editItem = itemDAO.read(id);
+            editItemQuantity = itemDAO.getQuantityById(id);
             log.error(editItem);
             httpSession.setAttribute("editItem", editItem);
             httpSession.setAttribute("editItemQuantity", editItemQuantity);
-            itemDao.returnConnection();
+            itemDAO.returnConnection();
             return new ActionResult("controller?action=editItem", true);
         } catch (Exception e) {
             log.error(e);

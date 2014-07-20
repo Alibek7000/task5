@@ -1,6 +1,6 @@
 package com.epam.kozhanbergenov.shop.action;
 
-import com.epam.kozhanbergenov.shop.dao.BasketItems;
+import com.epam.kozhanbergenov.shop.DAO.BasketItems;
 import com.epam.kozhanbergenov.shop.entity.Item;
 import org.apache.log4j.Logger;
 

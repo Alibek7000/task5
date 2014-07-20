@@ -1,8 +1,8 @@
 package com.epam.kozhanbergenov.shop.tag;
 
-import com.epam.kozhanbergenov.shop.dao.CategoryDao;
-import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDao;
+import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
+import com.epam.kozhanbergenov.shop.DAO.exception.DAOException;
+import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import org.apache.log4j.Logger;
@@ -19,11 +19,11 @@ public class GetCategoryList extends TagSupport {
 
     @Override
     public int doStartTag() throws JspException {
-        CategoryDao categoryDao = new H2CategoryDao(ConnectionPool.getConnection());
+        CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
         List<Category> categoryList = null;
         try {
-            categoryList = categoryDao.getAllByParentId(0);
-        } catch (DaoException e) {
+            categoryList = categoryDAO.getAllByParentId(0);
+        } catch (DAOException e) {
             log.error(e);
         }
         Locale locale = (Locale) pageContext.findAttribute("language");
@@ -34,8 +34,8 @@ public class GetCategoryList extends TagSupport {
         for (Category category : categoryList) {
             List<Category> childrenList = null;
             try {
-                childrenList = categoryDao.getAllByParentId(category.getId());
-            } catch (DaoException e) {
+                childrenList = categoryDAO.getAllByParentId(category.getId());
+            } catch (DAOException e) {
                 log.error(e);
             }
             s += "<strong><a href=\"controller?action=showCategoryItems&parentId=0&categoryId=" + category.getId() + "\">"
@@ -49,7 +49,7 @@ public class GetCategoryList extends TagSupport {
                 s += "</ul>";
             }
         }
-        categoryDao.returnConnection();
+        categoryDAO.returnConnection();
         try {
             JspWriter out = pageContext.getOut();
             out.write(s);
