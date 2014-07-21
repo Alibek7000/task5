@@ -1,9 +1,10 @@
 package com.epam.kozhanbergenov.shop.action;
 
-import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
-import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Item;
 import com.epam.kozhanbergenov.shop.util.ConfigurationManager;
@@ -27,7 +28,7 @@ public class ShowCategoryItems implements Action {
             int parentId = new Integer(req.getParameter("parentId"));
             log.debug("categoryId = " + categoryId);
             log.debug("ParentId = " + parentId);
-            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
+            ItemDAO itemDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getItemDao();
             Map<Item, Integer> categoryItems = null;
             boolean sortingUp = false;
             boolean sortingByName = false;
@@ -52,7 +53,7 @@ public class ShowCategoryItems implements Action {
             else
                 categoryItems = itemDAO.getAllByParentCategory(categoryId, (page - 1) * RECORDS_PER_PAGE, RECORDS_PER_PAGE, sortingByName, sortingByPrice, sortingUp);
             itemDAO.returnConnection();
-            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
+            CategoryDAO categoryDAO = DAOFactory.getDAOFactory(DAOFactory.H2).getCategoryDao();
 
             String categoryName = null;
             String categoryRuName = null;

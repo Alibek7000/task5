@@ -2,8 +2,9 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.UserDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2UserDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.UserDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -29,7 +30,7 @@ public class BaningClient implements Action {
             int id = new Integer(req.getParameter("id"));
             boolean value = Boolean.parseBoolean(req.getParameter("value"));
 
-            UserDAO userDAO = new H2UserDAO(ConnectionPool.getConnection());
+            UserDAO userDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getUserDao();
 
             User client = null;
             client = userDAO.read(id);

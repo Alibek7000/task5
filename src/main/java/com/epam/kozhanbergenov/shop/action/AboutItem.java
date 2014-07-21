@@ -1,8 +1,9 @@
 package com.epam.kozhanbergenov.shop.action;
 
-import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
-import com.epam.kozhanbergenov.shop.DAO.exception.DAOException;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.exception.DAOException;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Item;
 import org.apache.log4j.Logger;
@@ -18,7 +19,7 @@ public class AboutItem implements Action {
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         log.debug("AboutItem action was started");
-        ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
+        ItemDAO itemDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getItemDao();
         int id = 0;
         try {
             id = new Integer(req.getParameter("id"));

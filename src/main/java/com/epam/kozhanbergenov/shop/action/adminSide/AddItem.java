@@ -2,10 +2,10 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAOFactory;
-import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import com.epam.kozhanbergenov.shop.entity.Client;
@@ -38,7 +38,7 @@ public class AddItem implements Action {
                 return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             List<Category> categories = null;
-            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
+            CategoryDAO categoryDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getCategoryDao();
             categories = categoryDAO.getAll();
             String name = req.getParameter("name");
             String description = req.getParameter("description");
@@ -46,7 +46,7 @@ public class AddItem implements Action {
                 httpSession.setAttribute("categories", categories);
                 return new ActionResult("/WEB-INF/jsp/addItem.jsp");
             }
-            ItemDAO itemDAO = H2DAOFactory.getItemDao();
+            ItemDAO itemDAO = DAOFactory.getDAOFactory(DAOFactory.H2).getItemDao();
             String quantityString = req.getParameter("quantity");
             String priceString = req.getParameter("price");
             int categoryId = 0;

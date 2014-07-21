@@ -1,13 +1,14 @@
 package com.epam.kozhanbergenov.shop.action.clientSide;
 
-import com.epam.kozhanbergenov.shop.DAO.exception.DAOException;
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.BasketItems;
-import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
-import com.epam.kozhanbergenov.shop.DAO.OrderDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2OrderDAO;
+import com.epam.kozhanbergenov.shop.dao.BasketItems;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.OrderDAO;
+import com.epam.kozhanbergenov.shop.dao.exception.DAOException;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2OrderDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.*;
 import org.apache.log4j.Logger;
@@ -31,7 +32,7 @@ public class Pay implements Action {
                 return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             boolean enough = true;
-            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
+            ItemDAO itemDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getItemDao();
             Map<Item, Integer> items = (Map<Item, Integer>) httpSession.getAttribute("items");
             if (!itemDAO.enoughQuantity(items)) {
                 enough = false;
@@ -45,7 +46,7 @@ public class Pay implements Action {
                 order.setItemIntegerMap(items);
                 log.debug(order.getClient());
                 int orderId = 0;
-                OrderDAO orderDAO = new H2OrderDAO(ConnectionPool.getConnection());
+                OrderDAO orderDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getOrderDao();
                 try {
                     orderId = orderDAO.create(order);
                     if (orderDAO.read(orderId).getId() != 0) {

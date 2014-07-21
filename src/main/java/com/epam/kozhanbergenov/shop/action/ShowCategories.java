@@ -1,7 +1,8 @@
 package com.epam.kozhanbergenov.shop.action;
 
-import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import org.apache.log4j.Logger;
@@ -18,7 +19,7 @@ public class ShowCategories implements Action {
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         log.debug("ShowCategories action was started");
         try {
-            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
+            CategoryDAO categoryDAO = DAOFactory.getDAOFactory(DAOFactory.H2).getCategoryDao();
             List<Category> categoryList = null;
             categoryList = categoryDAO.getAll();
             categoryDAO.returnConnection();

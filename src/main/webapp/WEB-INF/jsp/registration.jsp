@@ -26,7 +26,7 @@
             <fmt:message key="registration.login"/>
             <br>
             <input type="text" name="login" maxlength="20" value="${param.login}">
-            <font color="#ff0000"><fmt:message key="${param.em1}" /></font>
+            <font color="#ff0000"><fmt:message key="${param.em1}"/></font>
             <br>
             <fmt:message key="registration.password"/>
             <br>
@@ -50,7 +50,7 @@
             <br>
             <fmt:message key="registration.phoneNumber"/>
             <br>
-            <input type="text" name="phoneNumber" maxlength="40"value="${param.phoneNumber}">
+            <input type="text" name="phoneNumber" maxlength="40" value="${param.phoneNumber}">
             <font color="#ff0000"><fmt:message key="${param.em6}"/></font>
             <br><br>
             <font color="#ff0000">*</font> - <fmt:message key="registration.requiredFields"/><br>

@@ -2,8 +2,9 @@ package com.epam.kozhanbergenov.shop.action.clientSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Item;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -23,7 +24,7 @@ public class BuyItemButton implements Action {
             HttpSession httpSession = req.getSession();
             User user = (User) httpSession.getAttribute("user");
 
-            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
+            ItemDAO itemDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getItemDao();
             int id = new Integer(req.getParameter("id"));
             String requestedQuantityString = req.getParameter("quantity");
             Item item = itemDAO.read(id);

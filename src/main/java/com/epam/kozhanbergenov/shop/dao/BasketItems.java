@@ -1,7 +1,7 @@
 package com.epam.kozhanbergenov.shop.dao;
 
-import com.epam.kozhanbergenov.shop.dao.exception.DaoException;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2BasketDao;
+import com.epam.kozhanbergenov.shop.dao.exception.DAOException;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2BasketDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Item;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -29,18 +29,18 @@ public final class BasketItems {
         this.req = req;
         this.resp = resp;
         userId = getUserId();
-        BasketDao basketDao = new H2BasketDao(ConnectionPool.getConnection());
+        BasketDAO basketDAO = new H2BasketDAO(ConnectionPool.getConnection());
         if (userId != 0) {
             try {
-                uuid = basketDao.getBasketIdByUserId(userId);
-            } catch (DaoException e) {
+                uuid = basketDAO.getBasketIdByUserId(userId);
+            } catch (DAOException e) {
                 log.error(e);
             }
             if (uuid == null) {
                 log.debug("There is no basket for this user!");
                 try {
-                    uuid = basketDao.create(userId);
-                } catch (DaoException e) {
+                    uuid = basketDAO.create(userId);
+                } catch (DAOException e) {
                     log.error(e);
                 }
             }
@@ -57,11 +57,11 @@ public final class BasketItems {
     public Map<Item, Integer> getBasketItems() {
         log.debug("Trying to getBasketItems");
         log.debug("UserId = " + userId);
-        BasketDao basketDao = new H2BasketDao(ConnectionPool.getConnection());
+        BasketDAO basketDAO = new H2BasketDAO(ConnectionPool.getConnection());
         if (userId != 0) {
             try {
-                basketItems = basketDao.readByUserId(userId);
-            } catch (DaoException e) {
+                basketItems = basketDAO.readByUserId(userId);
+            } catch (DAOException e) {
                 log.error(e);
             }
             log.debug("basketItems " + basketItems);
@@ -69,27 +69,27 @@ public final class BasketItems {
             Map<Item, Integer> cookieBasket = null;
 
             try {
-                uuid = basketDao.getBasketIdByUserId(userId);
-            } catch (DaoException e) {
+                uuid = basketDAO.getBasketIdByUserId(userId);
+            } catch (DAOException e) {
                 log.error(e);
             }
             try {
                 log.debug("uuid = " + uuid);
                 log.debug("cookieBasketUuid = " + cookieBasketUuid);
-                    cookieBasket = basketDao.read(cookieBasketUuid);
-            } catch (DaoException e) {
+                    cookieBasket = basketDAO.read(cookieBasketUuid);
+            } catch (DAOException e) {
                 log.error(e);
             }
             boolean isBaseHasSameUser = false;
             boolean isInBaseOurUser = false;
             boolean isItAlienBasket = false;
             try {
-                isBaseHasSameUser = (basketDao.getUserIdByBasketId(cookieBasketUuid) != 0) ;
-                isInBaseOurUser = (basketDao.getUserIdByBasketId(cookieBasketUuid) == userId);
+                isBaseHasSameUser = (basketDAO.getUserIdByBasketId(cookieBasketUuid) != 0) ;
+                isInBaseOurUser = (basketDAO.getUserIdByBasketId(cookieBasketUuid) == userId);
                 isItAlienBasket = isBaseHasSameUser && !cookieBasketUuid.equals(uuid);
-                log.debug("userId = "  + userId + " DBUserId = " + basketDao.getUserIdByBasketId(cookieBasketUuid));
+                log.debug("userId = "  + userId + " DBUserId = " + basketDAO.getUserIdByBasketId(cookieBasketUuid));
                 log.debug(" isBaseHasSameUser " + isBaseHasSameUser + " isInBaseOurUser "+ isInBaseOurUser + " isItAlienBasket " + isItAlienBasket);
-            } catch (DaoException e) {
+            } catch (DAOException e) {
                 log.error(e);
             }
             if (cookieBasket != null && cookieBasketUuid != null
@@ -110,16 +110,16 @@ public final class BasketItems {
                 log.debug("cookieBasket == null");
             }
             try {
-                uuid = basketDao.getBasketIdByUserId(userId);
-            } catch (DaoException e) {
+                uuid = basketDAO.getBasketIdByUserId(userId);
+            } catch (DAOException e) {
                 log.error(e);
             }
             addBasketIdToCookie(uuid);
         } else if (userId == 0) {
             try {
                 log.debug("User id is 0");
-                basketItems = basketDao.read(uuid);
-            } catch (DaoException e) {
+                basketItems = basketDAO.read(uuid);
+            } catch (DAOException e) {
                 log.error(e);
             }
         }
@@ -130,15 +130,15 @@ public final class BasketItems {
         log.debug("Trying to addItem");
         int newQuantity = quantity;
 
-        BasketDao basketDao = new H2BasketDao(ConnectionPool.getConnection());
+        BasketDAO basketDAO = new H2BasketDAO(ConnectionPool.getConnection());
         Map<Item, Integer> basketItems = null;
 
         try {
             if (userId != 0)
-                basketItems = basketDao.readByUserId(userId);
+                basketItems = basketDAO.readByUserId(userId);
             else
-                basketItems = basketDao.read(uuid);
-        } catch (DaoException e) {
+                basketItems = basketDAO.read(uuid);
+        } catch (DAOException e) {
             log.error(e);
         }
 
@@ -155,13 +155,13 @@ public final class BasketItems {
             log.debug("User is exist!");
             try {
                 if (uuid == null) {
-                    uuid = basketDao.create(userId);
+                    uuid = basketDAO.create(userId);
                     log.debug("Basket id = " + uuid);
                 }
-                basketDao.update(uuid, userId);
+                basketDAO.update(uuid, userId);
                 addBasketIdToCookie(uuid);
 
-            } catch (DaoException e) {
+            } catch (DAOException e) {
                 log.error(e);
             }
         } else if (userId == 0) {
@@ -169,9 +169,9 @@ public final class BasketItems {
             log.debug("Basket id = " + uuid);
             if (uuid == null) {
                 try {
-                    uuid = basketDao.create(0);
+                    uuid = basketDAO.create(0);
                     log.debug("Basket id = " + uuid);
-                } catch (DaoException e) {
+                } catch (DAOException e) {
                     log.error(e);
                 }
                 addBasketIdToCookie(uuid);
@@ -179,8 +179,8 @@ public final class BasketItems {
             }
         }
         try {
-            basketDao.addItem(uuid, item, newQuantity);
-        } catch (DaoException e) {
+            basketDAO.addItem(uuid, item, newQuantity);
+        } catch (DAOException e) {
             log.error(e);
         }
         log.debug(String.valueOf(item) + " quantity " + String.valueOf(newQuantity));
@@ -203,10 +203,10 @@ public final class BasketItems {
     }
 
     public void removeItem(int itemId) {
-        BasketDao basketDao = new H2BasketDao(ConnectionPool.getConnection());
+        BasketDAO basketDAO = new H2BasketDAO(ConnectionPool.getConnection());
         try {
-            basketDao.deleteItemBasket(uuid, itemId);
-        } catch (DaoException e) {
+            basketDAO.deleteItemBasket(uuid, itemId);
+        } catch (DAOException e) {
             log.error(e);
         }
 

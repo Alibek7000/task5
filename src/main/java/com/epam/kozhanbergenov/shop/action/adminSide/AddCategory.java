@@ -2,8 +2,9 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import com.epam.kozhanbergenov.shop.entity.Client;
@@ -26,7 +27,7 @@ public class AddCategory implements Action {
             if (user == null || user instanceof Client) {
                 return new ActionResult("/WEB-INF/errorPage.jsp?errorMessage=error.permissionDenied");
             }
-            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
+            CategoryDAO categoryDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getCategoryDao();
             List<Category> categories = null;
             categories = categoryDAO.getAll();
             String name = req.getParameter("name");

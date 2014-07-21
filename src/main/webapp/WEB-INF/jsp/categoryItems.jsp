@@ -60,7 +60,12 @@
                                 value="${item.getName()}"/></a></td>
                         <fmt:formatNumber var="price" value="${item.getPrice()}"
                                           maxFractionDigits="2"/>
-                        <td><strong>$<c:out value="${price}"/></strong></td>
+                        <td><strong>$<c:out value="${price}"/></strong>
+                            <br>
+                            <button onClick="location.href='controller?action=buyItemButton&id=${item.getId()}&quantity=1'">
+                                <fmt:message
+                                        key="basket.pay"/></button>
+                        </td>
                         <td align="right"><c:out value="${entry.value}"/></td>
                         <c:if test="${sessionScope.user.getClass().getSimpleName() == 'Administrator'}">
                             <td>

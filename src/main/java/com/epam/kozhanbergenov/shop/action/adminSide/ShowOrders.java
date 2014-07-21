@@ -1,10 +1,11 @@
 package com.epam.kozhanbergenov.shop.action.adminSide;
 
-import com.epam.kozhanbergenov.shop.DAO.exception.DAOException;
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.OrderDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2OrderDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.OrderDAO;
+import com.epam.kozhanbergenov.shop.dao.exception.DAOException;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2OrderDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.Order;
@@ -27,7 +28,7 @@ public class ShowOrders implements Action {
         if (user == null || user instanceof Client) {
             return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
         }
-        OrderDAO orderDAO = new H2OrderDAO(ConnectionPool.getConnection());
+        OrderDAO orderDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getOrderDao();
         List<Order> orders = null;
         try {
             orders = orderDAO.getAll();

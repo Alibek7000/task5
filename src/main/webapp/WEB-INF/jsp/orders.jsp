@@ -33,7 +33,8 @@
                     <td><c:out value="${order.getClient().getId()}"/></td>
                     <td><c:out value="${order.getOrderDate()}"/></td>
                     <td>$<c:out value="${order.getAmount()}"/></td>
-                    <td><a href="controller?action=showOrder&message=&id=${order.getId()}"><fmt:message key="details"/></a></td>
+                    <td><a href="controller?action=showOrder&message=&id=${order.getId()}"><fmt:message
+                            key="details"/></a></td>
                     <td>
                         <c:choose>
 

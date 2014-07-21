@@ -1,8 +1,8 @@
 package com.epam.kozhanbergenov.shop.tag;
 
-import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
-import com.epam.kozhanbergenov.shop.DAO.exception.DAOException;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.exception.DAOException;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import org.apache.log4j.Logger;

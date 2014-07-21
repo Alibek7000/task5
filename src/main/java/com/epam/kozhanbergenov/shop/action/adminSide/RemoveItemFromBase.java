@@ -2,8 +2,9 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -27,7 +28,7 @@ public class RemoveItemFromBase implements Action {
                 return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
             int id = new Integer(req.getParameter("id"));
-            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
+            ItemDAO itemDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getItemDao();
             itemDAO.delete(itemDAO.read(id));
             File file = new File(req.getSession().getServletContext().getRealPath("/") + "/images/items/" + id + ".png");
             if (file.delete()) {

@@ -2,8 +2,9 @@ package com.epam.kozhanbergenov.shop.action.clientSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.OrderDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2OrderDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.OrderDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2OrderDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Item;
 import com.epam.kozhanbergenov.shop.entity.Order;
@@ -24,7 +25,7 @@ public class ShowOrder implements Action {
             int id = new Integer(req.getParameter("id"));
             log.debug("Order id = " + id);
             String message = req.getParameter("message");
-            OrderDAO orderDAO = new H2OrderDAO(ConnectionPool.getConnection());
+            OrderDAO orderDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getOrderDao();
             Order order = null;
             order = orderDAO.read(id);
             Map<Item, Integer> orderItems = order.getItemIntegerMap();

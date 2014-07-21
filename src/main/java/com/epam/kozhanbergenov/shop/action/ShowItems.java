@@ -1,9 +1,10 @@
 package com.epam.kozhanbergenov.shop.action;
 
-import com.epam.kozhanbergenov.shop.DAO.CategoryDAO;
-import com.epam.kozhanbergenov.shop.DAO.ItemDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2CategoryDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.ItemDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2ItemDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import com.epam.kozhanbergenov.shop.entity.Item;
@@ -30,10 +31,10 @@ public class ShowItems implements Action {
             HttpSession httpSession = req.getSession();
 
             List<Category> categories = null;
-            CategoryDAO categoryDAO = new H2CategoryDAO(ConnectionPool.getConnection());
+            CategoryDAO categoryDAO = DAOFactory.getDAOFactory(DAOFactory.H2).getCategoryDao();
             categories = categoryDAO.getAll();
             httpSession.setAttribute("categories", categories);
-            ItemDAO itemDAO = new H2ItemDAO(ConnectionPool.getConnection());
+            ItemDAO itemDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getItemDao();
             boolean sortingUp = false;
             boolean sortingByName = false;
             boolean sortingByPrice = false;

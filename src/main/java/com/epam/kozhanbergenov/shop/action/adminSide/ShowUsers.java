@@ -2,8 +2,9 @@ package com.epam.kozhanbergenov.shop.action.adminSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.UserDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2UserDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.UserDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.User;
@@ -26,7 +27,7 @@ public class ShowUsers implements Action {
             if (user == null || user instanceof Client) {
                 return new ActionResult("/WEB-INF/jsp/errorPage.jsp?errorMessage=error.permissionDenied");
             }
-            UserDAO userDAO = new H2UserDAO(ConnectionPool.getConnection());
+            UserDAO userDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getUserDao();
             List<User> users = null;
             users = userDAO.getAll();
             userDAO.returnConnection();

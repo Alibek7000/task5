@@ -1,10 +1,11 @@
 package com.epam.kozhanbergenov.shop.action.adminSide;
 
-import com.epam.kozhanbergenov.shop.DAO.exception.DAOException;
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.BasketDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2BasketDAO;
+import com.epam.kozhanbergenov.shop.dao.BasketDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.exception.DAOException;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2BasketDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.util.ConfigurationManager;
 import org.apache.log4j.Logger;
@@ -20,7 +21,7 @@ public class DeleteOldBaskets implements Action {
     @Override
     public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         log.debug("DeleteOldBaskets action was started");
-        BasketDAO basketDAO = new H2BasketDAO(ConnectionPool.getConnection());
+        BasketDAO basketDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getBasketDao();
         try {
             basketDAO.deleteOld(BASKET_SAVE_DAYS);
         } catch (DAOException e) {

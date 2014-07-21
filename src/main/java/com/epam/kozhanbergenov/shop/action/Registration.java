@@ -1,7 +1,8 @@
 package com.epam.kozhanbergenov.shop.action;
 
-import com.epam.kozhanbergenov.shop.DAO.UserDAO;
-import com.epam.kozhanbergenov.shop.DAO.H2DAO.H2UserDAO;
+import com.epam.kozhanbergenov.shop.dao.DAOFactory;
+import com.epam.kozhanbergenov.shop.dao.UserDAO;
+import com.epam.kozhanbergenov.shop.dao.h2Dao.H2UserDAO;
 import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Administrator;
 import com.epam.kozhanbergenov.shop.entity.Client;
@@ -53,7 +54,7 @@ public class Registration implements Action {
             phoneNumber = req.getParameter("phoneNumber");
 
 
-            UserDAO userDAO = new H2UserDAO(ConnectionPool.getConnection());
+            UserDAO userDAO =  DAOFactory.getDAOFactory(DAOFactory.H2).getUserDao();
 
             if (login == null && password == null && name == null && surname == null && address == null) {
                 return new ActionResult("/WEB-INF/jsp/registration.jsp?em1=" + em1 + "&em2=" + em2 + "&em3=" + em3 + "&em4=" +

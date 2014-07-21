@@ -2,7 +2,10 @@ package com.epam.kozhanbergenov.shop.action.clientSide;
 
 import com.epam.kozhanbergenov.shop.action.Action;
 import com.epam.kozhanbergenov.shop.action.ActionResult;
-import com.epam.kozhanbergenov.shop.DAO.BasketItems;
+import com.epam.kozhanbergenov.shop.dao.BasketItems;
+import com.epam.kozhanbergenov.shop.entity.Administrator;
+import com.epam.kozhanbergenov.shop.entity.Client;
+import com.epam.kozhanbergenov.shop.entity.User;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
