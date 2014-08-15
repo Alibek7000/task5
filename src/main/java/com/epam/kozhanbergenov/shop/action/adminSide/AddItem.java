@@ -5,8 +5,6 @@ import com.epam.kozhanbergenov.shop.action.ActionResult;
 import com.epam.kozhanbergenov.shop.dao.CategoryDAO;
 import com.epam.kozhanbergenov.shop.dao.DAOFactory;
 import com.epam.kozhanbergenov.shop.dao.ItemDAO;
-import com.epam.kozhanbergenov.shop.dao.h2Dao.H2CategoryDAO;
-import com.epam.kozhanbergenov.shop.database.ConnectionPool;
 import com.epam.kozhanbergenov.shop.entity.Category;
 import com.epam.kozhanbergenov.shop.entity.Client;
 import com.epam.kozhanbergenov.shop.entity.Item;
@@ -27,6 +25,7 @@ public class AddItem implements Action {
     private static final Logger log = Logger.getLogger(AddItem.class);
     private static ConfigurationManager configurationManager = new ConfigurationManager("shopConfiguration.properties");
     private static final String PATH_TO_IMAGES = configurationManager.getValue("pathToImages");
+    private static final int IMAGE_MAX_SIZE = Integer.parseInt(configurationManager.getValue("imageMaxSizeInMegabytes"));
 
 
     @Override
@@ -119,6 +118,9 @@ public class AddItem implements Action {
                 if (req.getPart("file").getSize() > 0) {
                     filePart = req.getPart("file");
                     log.debug("filePart.getSize()" + filePart.getSize());
+                    if (filePart.getSize() > IMAGE_MAX_SIZE/1024/1000/8/1000) {
+                        return new ActionResult("WEB-INF/jsp/errorPage.jsp?errorMessage=File is too big! Should be lower than 2Mb!");
+                    }
                 }
             } catch (IOException e) {
                 log.error(e);
